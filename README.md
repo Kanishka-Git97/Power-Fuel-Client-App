@@ -15,3 +15,16 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 # Power-Fuel-Client-App
+
+Development Directory 
+  
+        - lib
+          -controllers
+          -constants
+          -models
+          -presenatation (All the UI Element)
+            - atoms (common widgets)
+            - molecules (custome widgets)
+            - screens 
+		
+	
