@@ -62,8 +62,8 @@ class TextEditing extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        margin: const EdgeInsets.only(top: 50, bottom: 30, left: 20, right: 20),
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,7 +82,7 @@ class TextEditing extends State<RegisterScreen> {
                 height: 20,
               ),
               const Text(
-                "Account Infromation",
+                "Account Information",
                 style: formTitle,
               ),
               const SizedBox(
@@ -92,10 +92,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Enter Full Name",
                 labelText: "Full Name",
                 keyboardType: TextInputType.name,
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.redAccent,
-                ),
               ),
               const SizedBox(
                 height: 20,
@@ -104,7 +100,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Enter Valid NIC Number",
                 labelText: "NIC",
                 keyboardType: TextInputType.name,
-                icon: Icon(Icons.file_copy_outlined, color: Colors.redAccent),
               ),
               const SizedBox(
                 height: 20,
@@ -113,7 +108,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Enter Address",
                 labelText: "Address",
                 keyboardType: TextInputType.name,
-                icon: Icon(Icons.location_city, color: Colors.redAccent),
               ),
               const SizedBox(
                 height: 20,
@@ -125,15 +119,6 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              // DropdownButton<String>(
-              //   value: selectedItem,
-              //   items: items.map((item) => DropdownMenuItem(
-              //     child: Text(item,style: normalText,),
-              //     )).toList(),
-              //     onChanged:(item)=>setState(() {
-              //       selectedItem = item
-              //     });
-              //     ),
               FormHelper.dropDownWidget(context, "Select Nearest District",
                   selectedDistrict, _districtList, (onChangedVal) {
                 setState(() {
@@ -141,8 +126,7 @@ class TextEditing extends State<RegisterScreen> {
                   print(selectedDistrict);
                 });
               }, (onValidateVal) {},
-                  borderRadius: 5, optionLabel: "district", optionValue: "id"),
-
+                  borderRadius: 12, optionLabel: "district", optionValue: "id"),
               const SizedBox(
                 height: 20,
               ),
@@ -153,7 +137,7 @@ class TextEditing extends State<RegisterScreen> {
                 _gasStationList,
                 (onChangedVal) {},
                 (onValidateVal) {},
-                borderRadius: 5,
+                borderRadius: 12,
               ),
               const SizedBox(
                 height: 20,
@@ -169,10 +153,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Enter your Valid Email",
                 labelText: "Email Address",
                 keyboardType: TextInputType.emailAddress,
-                icon: Icon(
-                  Icons.email,
-                  color: Colors.redAccent,
-                ),
               ),
               const SizedBox(
                 height: 20,
@@ -181,7 +161,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Enter Your Password",
                 labelText: "New Password",
                 keyboardType: TextInputType.visiblePassword,
-                icon: Icon(Icons.password, color: Colors.redAccent),
               ),
               const SizedBox(
                 height: 20,
@@ -190,7 +169,6 @@ class TextEditing extends State<RegisterScreen> {
                 hintText: "Confirm Your Password",
                 labelText: "Confirm Password",
                 keyboardType: TextInputType.visiblePassword,
-                icon: Icon(Icons.password, color: Colors.redAccent),
               ),
               const SizedBox(
                 height: 20,
@@ -206,7 +184,7 @@ class TextEditing extends State<RegisterScreen> {
                                   builder: (context) => const LoginScreen()));
                         },
                         text: "Sign Up",
-                        buttonColor: Colors.redAccent,
+                        buttonColor: primaryColor,
                         textColor: Colors.white),
                   ],
                 ),
