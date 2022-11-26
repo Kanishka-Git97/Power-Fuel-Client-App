@@ -1,30 +1,61 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
+import 'package:power_fuel_client_app/controllers/customer_controller.dart';
+import 'package:power_fuel_client_app/controllers/district_controller.dart';
 import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
 import 'package:power_fuel_client_app/presentation/screens/login_screen.dart';
+import 'package:power_fuel_client_app/repositories/customer_repository.dart';
+import 'package:power_fuel_client_app/repositories/district_repository.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
+import 'package:http/http.dart' as http;
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<RegisterScreen> createState() => TextEditing();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class TextEditing extends State<RegisterScreen> {
+  //Dependency Injection
+  //var _districtController = DistrictController(DistrictRepository());
+  var _customerController = CustomerController(CustomerRepository());
+
   //Variables
   List<dynamic> _districtList = [];
   List<dynamic> _gasStationList = [];
   String? selectedDistrict;
   String? selectedGasStation;
 
+  //Get District Data
+  Future getDistricts() async {
+    var response = await http.get(
+        Uri.parse('http://192.168.8.101:8080/districts/all'),
+        headers: {"Accept": "application/json"});
+    var jasonBody = response.body;
+    var jsonData = json.decode(jasonBody);
+    List<dynamic> responseList = [];
+    for (var i = 0; i < jsonData.length; i++) {
+      responseList.add(jsonData[i]);
+    }
+    setState(() {
+      _districtList = responseList;
+    });
+  }
+
+  //TextEditing Controller Setup
+
   @override
   void initState() {
     super.initState();
-    this._districtList.add({"id": 1, "name": "Matara"});
-    this._districtList.add({"id": 2, "name": "Galle"});
-    this._gasStationList.add({"id": 1, "name": "Galle - Piniduwa Shed"});
+    getDistricts();
+    //this._districtList.add({"id": "0", "name": "Select District"});
+    //print("District List: $_districtList");
+    this._gasStationList.add({"id": "1", "name": "Galle - Piniduwa Shed"});
+    print(_districtList);
   }
 
   @override
@@ -103,25 +134,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
               //       selectedItem = item
               //     });
               //     ),
-              FormHelper.dropDownWidget(
-                  context,
-                  "Select Nearest District",
-                  selectedDistrict,
-                  _districtList,
-                  (onChangedVal) {},
-                  (onValidateVal) {},
-                  borderRadius: 5),
+              FormHelper.dropDownWidget(context, "Select Nearest District",
+                  selectedDistrict, _districtList, (onChangedVal) {
+                setState(() {
+                  selectedDistrict = onChangedVal;
+                  print(selectedDistrict);
+                });
+              }, (onValidateVal) {},
+                  borderRadius: 5, optionLabel: "district", optionValue: "id"),
+
               const SizedBox(
                 height: 20,
               ),
               FormHelper.dropDownWidget(
-                  context,
-                  "Select Nearest Gas Station",
-                  selectedGasStation,
-                  _gasStationList,
-                  (onChangedVal) {},
-                  (onValidateVal) {},
-                  borderRadius: 5),
+                context,
+                "Select Nearest Gas Station",
+                selectedGasStation,
+                _gasStationList,
+                (onChangedVal) {},
+                (onValidateVal) {},
+                borderRadius: 5,
+              ),
               const SizedBox(
                 height: 20,
               ),
