@@ -17,29 +17,29 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, ),
-            child: SizedBox(
-              height: 50,
-                child: TextButton(
-                    onPressed: onTap,
-                    style: TextButton.styleFrom(
-                      backgroundColor: buttonColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                    ),
-                    child: Text(
-                      text,
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: -0.3,
-                      ),
-                    )),
-              
-            ),
-          ),
-        );
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SizedBox(
+          height: 50,
+          child: TextButton(
+              onPressed: onTap,
+              style: TextButton.styleFrom(
+                backgroundColor: buttonColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+              ),
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -0.3,
+                ),
+              )),
+        ),
+      ),
+    );
+
   }
 }

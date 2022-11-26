@@ -19,74 +19,60 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
         child: SingleChildScrollView(
-          child:SafeArea(
+          child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Center(
-              child: Text(
-                "Sign In",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w600,
-                  color: primaryColor,
-                ),
-              ),
-            ),
-            const SizedBox(height: 50,),
-            GestureDetector(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: ((context) => const RegisterScreen()),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    "Don't a account? SIgn Up here",
+                  child: Text(
+                    "Sign In",
                     style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.blue),
-                  )),
-             const SizedBox(height: 20,),
-             const Padding(
-               padding: EdgeInsets.symmetric(horizontal: 20),
-               child: TextInput(
-                hintText: "Enter Username",
-                labelText: "Email Address",
-                keyboardType: TextInputType.emailAddress,
-                
-            ),
-             ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: TextInput(
-                hintText: "Enter Password",
-                labelText: "Password",
-                keyboardType: TextInputType.visiblePassword,
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                PrimaryButton(onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));},
-                 text: "Sign In", 
-                 buttonColor: primaryColor, 
-                 textColor: Colors.white),
+                      fontSize: 30,
+                      fontWeight: FontWeight.w600,
+                      color: primaryColor,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 60,
+                ),
+                const TextInput(
+                  hintText: "Enter Username",
+                  labelText: "Email Address",
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const TextInput(
+                  hintText: "Enter Password",
+                  labelText: "Password",
+                  keyboardType: TextInputType.visiblePassword,
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                Row(
+                  children: [
+                    PrimaryButton(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomeScreen()));
+                        },
+                        text: "Sign In",
+                        buttonColor: Colors.redAccent,
+                        textColor: Colors.white),
+                  ],
+                ),
               ],
             ),
-            ],),
           ),
-        ),),
+        ),
+      ),
     );
   }
 }
