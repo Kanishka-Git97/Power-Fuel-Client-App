@@ -6,6 +6,7 @@ import 'package:power_fuel_client_app/controllers/customer_controller.dart';
 import 'package:power_fuel_client_app/controllers/district_controller.dart';
 import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
+import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:power_fuel_client_app/presentation/screens/login_screen.dart';
 import 'package:power_fuel_client_app/repositories/customer_repository.dart';
 import 'package:power_fuel_client_app/repositories/district_repository.dart';
@@ -63,6 +64,7 @@ class TextEditing extends State<RegisterScreen> {
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(top: 50, bottom: 30, left: 20, right: 20),
+
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
@@ -79,6 +81,26 @@ class TextEditing extends State<RegisterScreen> {
                 ),
               ),
               const SizedBox(
+                height: 40,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const LoginScreen()),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Already have a account? SIgn In here",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.blue),
+                ),
+              ),
+              const SizedBox(
                 height: 20,
               ),
               const Text(
@@ -88,26 +110,41 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const TextInput(
-                hintText: "Enter Full Name",
-                labelText: "Full Name",
-                keyboardType: TextInputType.name,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Enter Full Name",
+                  labelText: "Full Name",
+                  keyboardType: TextInputType.name,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextInput(
-                hintText: "Enter Valid NIC Number",
-                labelText: "NIC",
-                keyboardType: TextInputType.name,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Enter Valid NIC Number",
+                  labelText: "NIC",
+                  keyboardType: TextInputType.text,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextInput(
-                hintText: "Enter Address",
-                labelText: "Address",
-                keyboardType: TextInputType.name,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Enter Address",
+                  labelText: "Address",
+                  keyboardType: TextInputType.multiline,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
@@ -119,6 +156,7 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
+
               FormHelper.dropDownWidget(context, "Select Nearest District",
                   selectedDistrict, _districtList, (onChangedVal) {
                 setState(() {
@@ -127,48 +165,68 @@ class TextEditing extends State<RegisterScreen> {
                 });
               }, (onValidateVal) {},
                   borderRadius: 12, optionLabel: "district", optionValue: "id"),
+
               const SizedBox(
                 height: 20,
               ),
               FormHelper.dropDownWidget(
-                context,
-                "Select Nearest Gas Station",
-                selectedGasStation,
-                _gasStationList,
-                (onChangedVal) {},
-                (onValidateVal) {},
-                borderRadius: 12,
+
+                  context,
+                  "Select Nearest Gas Station",
+                  selectedGasStation,
+                  _gasStationList,
+                  (onChangedVal) {},
+                  (onValidateVal) {},
+                  borderRadius: 12),
+
+              const SizedBox(
+                height: 20,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Setup Your Login Details",
+                  style: formTitle,
+                ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                "Setup Your Login Details",
-                style: mainHeading,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Enter your Valid Email",
+                  labelText: "Email Address",
+                  keyboardType: TextInputType.emailAddress,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextInput(
-                hintText: "Enter your Valid Email",
-                labelText: "Email Address",
-                keyboardType: TextInputType.emailAddress,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Enter Your Password",
+                  labelText: "New Password",
+                  keyboardType: TextInputType.visiblePassword,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
               ),
-              const TextInput(
-                hintText: "Enter Your Password",
-                labelText: "New Password",
-                keyboardType: TextInputType.visiblePassword,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const TextInput(
-                hintText: "Confirm Your Password",
-                labelText: "Confirm Password",
-                keyboardType: TextInputType.visiblePassword,
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextInput(
+                  hintText: "Confirm Your Password",
+                  labelText: "Confirm Password",
+                  keyboardType: TextInputType.visiblePassword,
+                ),
+
               ),
               const SizedBox(
                 height: 20,
@@ -181,10 +239,12 @@ class TextEditing extends State<RegisterScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const LoginScreen()));
+                                  builder: (context) => const HomeScreen()));
                         },
                         text: "Sign Up",
-                        buttonColor: primaryColor,
+
+                        buttonColor:primaryColor,
+
                         textColor: Colors.white),
                   ],
                 ),

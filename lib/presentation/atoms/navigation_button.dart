@@ -12,11 +12,10 @@ class NavigationButton extends StatelessWidget {
       onTap: (() => Navigator.pop(context)),
       child: const Padding(
         padding: EdgeInsets.only(left: 20),
-        child: Icon(
-          Icons.arrow_back_ios,
-          size: 30,
-          color: textColor,
-        ),
+
+        child: Icon(Icons.arrow_back_ios,
+        size: 30,
+        color: textColor,),
       ),
     );
   }

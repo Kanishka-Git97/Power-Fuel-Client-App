@@ -7,6 +7,7 @@ class TextInput extends StatelessWidget {
       required this.hintText,
       required this.labelText,
       required this.keyboardType})
+
       : super(key: key);
 
   final String hintText;
@@ -16,6 +17,7 @@ class TextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: formTitle,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
