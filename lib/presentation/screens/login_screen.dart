@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/presentation/screens/registration_screen.dart';
 
 import '../../constants/constants.dart';
 import '../atoms/primary_button.dart';
@@ -34,33 +35,52 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-             const SizedBox(height: 60,),
-             const TextInput(
-              hintText: "Enter Username",
-              labelText: "Email Address",
-              keyboardType: TextInputType.emailAddress,
-              icon: Icon(
-                Icons.email,
-                color: Colors.redAccent,
+            const SizedBox(height: 50,),
+            GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const RegisterScreen()),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Don't a account? SIgn Up here",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.blue),
+                  )),
+             const SizedBox(height: 20,),
+             const Padding(
+               padding: EdgeInsets.symmetric(horizontal: 20),
+               child: TextInput(
+                hintText: "Enter Username",
+                labelText: "Email Address",
+                keyboardType: TextInputType.emailAddress,
+                
+            ),
+             ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: TextInput(
+                hintText: "Enter Password",
+                labelText: "Password",
+                keyboardType: TextInputType.visiblePassword,
               ),
             ),
             const SizedBox(
               height: 20,
             ),
-            const TextInput(
-              hintText: "Enter Password",
-              labelText: "Password",
-              keyboardType: TextInputType.visiblePassword,
-              icon: Icon(Icons.password, color: Colors.redAccent),
-            ),
-            const SizedBox(
-              height: 100,
-            ),
             Row(
               children: [
                 PrimaryButton(onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));},
                  text: "Sign In", 
-                 buttonColor: Colors.redAccent, 
+                 buttonColor: primaryColor, 
                  textColor: Colors.white),
               ],
             ),

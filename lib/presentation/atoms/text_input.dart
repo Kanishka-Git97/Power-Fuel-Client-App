@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/constants/constants.dart';
 
 class TextInput extends StatelessWidget {
-  const TextInput({Key? key, required this.hintText, required this.labelText, required this.keyboardType, required this.icon})
+  const TextInput({Key? key, required this.hintText, required this.labelText, required this.keyboardType, })
       : super(key: key);
 
   final String hintText;
   final String labelText;
   final TextInputType keyboardType;
-  final Icon icon;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: formTitle,
       decoration: InputDecoration(
         hintText: hintText,
         labelText: labelText,
-        prefixIcon: icon,
+        floatingLabelStyle: const TextStyle(color: primaryColor),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(
-            Radius.circular(5),
+            Radius.circular(12),
           ),
         ),
       ),

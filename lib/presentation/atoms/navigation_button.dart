@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/constants/constants.dart';
 
 class NavigationButton extends StatelessWidget {
   
@@ -10,10 +11,10 @@ class NavigationButton extends StatelessWidget {
     return GestureDetector(
       onTap:(() => Navigator.pop(context)),
       child: const Padding(
-        padding: EdgeInsets.only(left: 25),
+        padding: EdgeInsets.only(left: 20),
         child: Icon(Icons.arrow_back_ios,
         size: 30,
-        color: Colors.black,),
+        color: textColor,),
       ),
           );
 
