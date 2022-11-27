@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 100,
+                height: 10,
               ),
               Row(
                 children: [
@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(
-                height: 100,
+                height: 10,
               ),
               Row(
                 children: [

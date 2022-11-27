@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
 import 'package:power_fuel_client_app/presentation/atoms/navigation_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
+import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../../atoms/primary_button.dart';
@@ -99,7 +100,7 @@ class _AddVehicleState extends State<AddVehicle> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ViewVehiclesScreen()));
+                                  builder: (context) => HomeScreen( )));
                         },
                         text: "Submit",
                         buttonColor:primaryColor,
