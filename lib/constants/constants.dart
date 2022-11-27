@@ -11,6 +11,6 @@ const TextStyle mainHeading =
 const TextStyle subHeading =
     TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
 const TextStyle normalText =
-    TextStyle(fontSize: 12, fontWeight: FontWeight.normal);
+    TextStyle(fontSize: 14, fontWeight: FontWeight.normal);
 const TextStyle formTitle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
