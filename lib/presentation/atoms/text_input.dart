@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
 
 class TextInput extends StatelessWidget {
-  const TextInput({Key? key, required this.hintText, required this.labelText, required this.keyboardType, })
+  const TextInput(
+      {Key? key,
+      required this.hintText,
+      required this.labelText,
+      required this.keyboardType})
+
       : super(key: key);
 
   final String hintText;
