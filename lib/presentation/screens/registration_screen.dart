@@ -71,10 +71,31 @@ class TextEditing extends State<RegisterScreen> {
         _addressController.value.text.isEmpty &&
         _emailController.value.text.isEmpty &&
         _passwordController.value.text.isEmpty &&
-        _confirmPasswordController.value.text.isEmpty)
-      return "Required Fields are Missing"; // TODO: Should add Snackbar
-    if (_passwordController.text != _confirmPasswordController.text)
-      return "Passwords Doesnt Match"; // TODO: Should add Snackbar
+        _confirmPasswordController.value.text.isEmpty) {
+      return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Required Fields are Missing!'),
+          backgroundColor: (Colors.redAccent),
+          action: SnackBarAction(
+            label: 'Dismiss',
+            onPressed: () {},
+          ),
+        ),
+      );
+    }
+
+    if (_passwordController.text != _confirmPasswordController.text) {
+      return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Password Does not Match!'),
+          backgroundColor: (Colors.redAccent),
+          action: SnackBarAction(
+            label: 'Dismiss',
+            onPressed: () {},
+          ),
+        ),
+      );
+    } // TODO: Should add Snackbar
 
     _customer.name = _nameController.text;
     _customer.nic = _nicController.text;
@@ -82,19 +103,37 @@ class TextEditing extends State<RegisterScreen> {
     _customer.email = _emailController.text;
     _customer.password = _passwordController.text;
 
-    int _validatationResponse = await _customerController
-        .validate(_customer); // TODO: Shoud Fix Bug #01
-    //TODO: Should validate Email (Backend Validation)
-    if (_validatationResponse > 0) return "Already Exist Account";
+    //Backend Validation Request
+    int _validatationResponse = await _customerController.validate(_customer);
+    if (_validatationResponse > 0) return print("Already Exist Account");
     var response = await _customerController.register(_customer);
     if (response == "true") {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Successfully Registered'),
+          backgroundColor: (Colors.greenAccent),
+          action: SnackBarAction(
+            label: 'Dismiss',
+            onPressed: () {},
+          ),
+        ),
+      );
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: ((context) => const HomeScreen()),
           ));
     } else {
-      print("error"); // TODO: Should add Snackbar
+      return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text('Something Went Wrong!'),
+          backgroundColor: (Colors.redAccent),
+          action: SnackBarAction(
+            label: 'Dismiss',
+            onPressed: () {},
+          ),
+        ),
+      );
     }
     //print(_customer.station);
   }
@@ -248,8 +287,9 @@ class TextEditing extends State<RegisterScreen> {
                 child: TextInput(
                   hintText: "Enter Your Password",
                   labelText: "New Password",
-                  keyboardType: TextInputType.visiblePassword,
+                  keyboardType: TextInputType.text,
                   controller: _passwordController,
+                  obscureText: true,
                 ),
               ),
               const SizedBox(
@@ -260,8 +300,9 @@ class TextEditing extends State<RegisterScreen> {
                 child: TextInput(
                   hintText: "Confirm Your Password",
                   labelText: "Confirm Password",
-                  keyboardType: TextInputType.visiblePassword,
+                  keyboardType: TextInputType.text,
                   controller: _confirmPasswordController,
+                  obscureText: true,
                 ),
               ),
               const SizedBox(

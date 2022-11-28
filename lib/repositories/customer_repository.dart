@@ -27,7 +27,6 @@ class CustomerRepository implements CustomerServices {
         },
         body: customer.toJson());
     var _response = response.body;
-    print(_response);
-    return 0;
+    return int.parse(_response);
   }
 }
