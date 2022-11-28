@@ -9,4 +9,8 @@ class CustomerController {
   Future<String> register(Customer customer) {
     return services.register(customer);
   }
+
+  Future<int> validate(Customer customer) {
+    return services.validate(customer);
+  }
 }

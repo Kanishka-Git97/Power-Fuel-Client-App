@@ -65,15 +65,16 @@ class TextEditing extends State<RegisterScreen> {
 
   //Customer Registration
   Future register() async {
+    //Front End Validation
     if (_nameController.value.text.isEmpty &&
         _nicController.value.text.isEmpty &&
         _addressController.value.text.isEmpty &&
         _emailController.value.text.isEmpty &&
         _passwordController.value.text.isEmpty &&
         _confirmPasswordController.value.text.isEmpty)
-      return "Required Fields are Missing";
+      return "Required Fields are Missing"; // TODO: Should add Snackbar
     if (_passwordController.text != _confirmPasswordController.text)
-      return "Passwords Doesnt Match";
+      return "Passwords Doesnt Match"; // TODO: Should add Snackbar
 
     _customer.name = _nameController.text;
     _customer.nic = _nicController.text;
@@ -81,8 +82,20 @@ class TextEditing extends State<RegisterScreen> {
     _customer.email = _emailController.text;
     _customer.password = _passwordController.text;
 
+    int _validatationResponse = await _customerController
+        .validate(_customer); // TODO: Shoud Fix Bug #01
+    //TODO: Should validate Email (Backend Validation)
+    if (_validatationResponse > 0) return "Already Exist Account";
     var response = await _customerController.register(_customer);
-    print(response);
+    if (response == "true") {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeScreen()),
+          ));
+    } else {
+      print("error"); // TODO: Should add Snackbar
+    }
     //print(_customer.station);
   }
 

@@ -17,7 +17,17 @@ class CustomerRepository implements CustomerServices {
     print(response.statusCode);
     print(response.body);
     return 'true';
+  }
 
-    
+  Future<int> validate(Customer customer) async {
+    var url = Uri.parse('$baseUrl/customers/validate');
+    var response = await http.post(url,
+        headers: {
+          "Accept": "application/json",
+        },
+        body: customer.toJson());
+    var _response = response.body;
+    print(_response);
+    return 0;
   }
 }
