@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
 import 'package:power_fuel_client_app/presentation/atoms/navigation_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
+import 'package:power_fuel_client_app/presentation/molecules/custom_bottom_navigation.dart';
 import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../../atoms/primary_button.dart';
 import 'view_vehicles_screen.dart';
 
-class AddVehicle extends StatefulWidget {
-  const AddVehicle({Key? key}) : super(key: key);
+class AddVehicleScreen extends StatefulWidget {
+  const AddVehicleScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddVehicle> createState() => _AddVehicleState();
+  State<AddVehicleScreen> createState() => _AddVehicleState();
 }
 
-class _AddVehicleState extends State<AddVehicle> {
+class _AddVehicleState extends State<AddVehicleScreen> {
   List<dynamic> _vehicleTypes = [];
   List<dynamic> _fuelTypes = [];
   String? selectedvehicle;
@@ -112,6 +113,7 @@ class _AddVehicleState extends State<AddVehicle> {
           ),
         ),
       ),
+      bottomNavigationBar: const CustomBottomNavigationBar(index: 1),
     );
   }
 }
