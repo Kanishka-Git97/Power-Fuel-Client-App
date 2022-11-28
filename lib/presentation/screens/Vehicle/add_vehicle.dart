@@ -100,7 +100,7 @@ class _AddVehicleState extends State<AddVehicle> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeScreen( )));
+                                  builder: (context) => const HomeScreen()));
                         },
                         text: "Submit",
                         buttonColor:primaryColor,

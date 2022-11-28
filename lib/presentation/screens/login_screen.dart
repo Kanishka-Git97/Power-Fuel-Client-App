@@ -36,7 +36,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
+                ),
+                GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const RegisterScreen()),
+                    ),
+                  );
+                },
+                child: const Text(
+                  "Don't have a account? SIgn Up here",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.blue),
+                ),
+              ),
+                const SizedBox(
+                  height: 20,
                 ),
                 const TextInput(
                   hintText: "Enter Username",
