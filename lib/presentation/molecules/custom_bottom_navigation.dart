@@ -1,8 +1,7 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:power_fuel_client_app/presentation/screens/fuel/request_fuel_screen.dart';
+
+import '../../../presentation/screens/fuel/request_fuel_screen.dart';
 
 import '../screens/Vehicle/add_vehicle_screen.dart';
 import '../screens/home_screen.dart';

@@ -58,18 +58,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const TextInput(
-                  hintText: "Enter Username",
-                  labelText: "Email Address",
-                  keyboardType: TextInputType.emailAddress,
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: TextInput(
+                    hintText: "Enter Username",
+                    labelText: "Email Address",
+                    keyboardType: TextInputType.emailAddress,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const TextInput(
-                  hintText: "Enter Password",
-                  labelText: "Password",
-                  keyboardType: TextInputType.visiblePassword,
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child:  TextInput(
+                    hintText: "Enter Password",
+                    labelText: "Password",
+                    keyboardType: TextInputType.visiblePassword,
+                  ),
                 ),
                 const SizedBox(
                   height: 100,

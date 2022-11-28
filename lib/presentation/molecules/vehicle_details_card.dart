@@ -21,7 +21,7 @@ class VehicleDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-            borderRadius: BorderRadius.circular(10),
+            // borderRadius: BorderRadius.circular(10),
             elevation: 5,
             child: Container(
               color: Colors.white30,
