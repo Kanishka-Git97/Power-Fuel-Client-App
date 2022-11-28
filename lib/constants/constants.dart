@@ -14,3 +14,6 @@ const TextStyle normalText =
     TextStyle(fontSize: 14, fontWeight: FontWeight.normal);
 const TextStyle formTitle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
+
+//Database Setting
+String baseUrl = "http://192.168.8.101:8080";

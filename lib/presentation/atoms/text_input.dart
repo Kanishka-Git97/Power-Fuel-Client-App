@@ -6,13 +6,14 @@ class TextInput extends StatelessWidget {
       {Key? key,
       required this.hintText,
       required this.labelText,
-      required this.keyboardType})
-
+      required this.keyboardType,
+      this.controller})
       : super(key: key);
 
   final String hintText;
   final String labelText;
   final TextInputType keyboardType;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class TextInput extends StatelessWidget {
       ),
       keyboardType: keyboardType,
       textInputAction: TextInputAction.done,
+      controller: controller,
     );
   }
 }

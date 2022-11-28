@@ -6,7 +6,7 @@ class DistrictController {
   final DistrictServices services;
 
   DistrictController(this.services);
-  Future<List<District>> fetchDistricts() async {
-    return services.getDistricts();
+  Future fetchDistrictsRaw() async {
+    return services.getDistrictsRaw();
   }
 }
