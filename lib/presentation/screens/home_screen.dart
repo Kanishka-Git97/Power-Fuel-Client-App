@@ -3,7 +3,7 @@ import 'package:power_fuel_client_app/constants/constants.dart';
 import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
 import 'package:power_fuel_client_app/presentation/molecules/custom_bottom_navigation.dart';
 import 'package:power_fuel_client_app/presentation/molecules/vehicle_details_card.dart';
-import 'package:power_fuel_client_app/presentation/screens/Vehicle/add_vehicle.dart';
+import 'package:power_fuel_client_app/presentation/screens/Vehicle/add_vehicle_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const AddVehicle()),
+                          MaterialPageRoute(builder: (context) => const AddVehicleScreen()),
                         );
                       },
                       text: "Add vehicle",

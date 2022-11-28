@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:power_fuel_client_app/presentation/screens/fuel/request_fuel_screen.dart';
 
-import '../screens/Vehicle/add_vehicle.dart';
+import '../screens/Vehicle/add_vehicle_screen.dart';
 import '../screens/home_screen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -36,7 +37,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           backgroundColor: Colors.white,
           color: Colors.white,
           activeColor: Colors.black,
-          tabBackgroundColor: Colors.white,
+          tabBackgroundColor: Color.fromARGB(255, 228, 228, 228),
           gap: 10,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           
@@ -53,14 +54,27 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               },
             ),
             GButton(
-              icon: Icons.contact_page,
+              icon: Icons.add,
               iconColor: Colors.black,
-              text: 'Create',
+              text: 'Add Vehicle',
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AddVehicle(),
+                    builder: (context) => const AddVehicleScreen(),
+                  ),
+                );
+              },
+            ),
+            GButton(
+              icon: Icons.request_page,
+              iconColor: Colors.black,
+              text: 'Request Fuel',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RequestFuelScreen(),
                   ),
                 );
               },
