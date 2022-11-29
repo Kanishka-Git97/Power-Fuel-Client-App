@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:power_fuel_client_app/presentation/screens/profile_details_screen.dart';
 
 import '../../../presentation/screens/fuel/request_fuel_screen.dart';
 
@@ -37,7 +38,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           color: Colors.white,
           activeColor: Colors.black,
           tabBackgroundColor: Color.fromARGB(255, 228, 228, 228),
-          gap: 10,
+          gap: 5,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           
           tabs: [
@@ -48,7 +49,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               },
             ),
@@ -74,6 +75,19 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const RequestFuelScreen(),
+                  ),
+                );
+              },
+            ),
+            GButton(
+              icon: Icons.person,
+              iconColor: Colors.black,
+              text: "Profile",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProfileDetailsScreen(),
                   ),
                 );
               },

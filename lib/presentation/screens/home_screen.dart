@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:power_fuel_client_app/constants/constants.dart';
-import 'package:power_fuel_client_app/presentation/molecules/vehicle_details_card.dart';
-
+import 'package:power_fuel_client_app/presentation/molecules/fuel_station_details.dart';
+import '../../constants/constants.dart';
+import '../molecules/vehicle_details_card.dart';
 import '../molecules/custom_bottom_navigation.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,24 +12,58 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  var timeNow = DateTime.now().hour;
+  String greetingMessage() {
+    if (timeNow <= 12) {
+      return 'Good Morning, ';
+    } else if ((timeNow > 12) && (timeNow <= 16)) {
+      return 'Good Afternoon, ';
+    } else {
+      return 'Good Evening, ';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.white,
             pinned: true,
             elevation: 5,
-            title: const Text(
-              "Your Vehicles",
-              style: mainHeading,
-            ),
-            expandedHeight: 200,
+            expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                margin: const EdgeInsets.only(top: 60),
-                child: Text("ADD CARD"),
+                color: Colors.white,
+                // margin: const EdgeInsets.only(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20, top: 40),
+                          child: CircleAvatar(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, top: 40),
+                          child: Text(greetingMessage(),
+                              textAlign: TextAlign.start, style: mainHeading),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only( top: 40),
+                          child: Text(
+                            "Sandini",
+                            style: mainHeading,
+                          ),
+                        ),
+                      ],
+                    ),
+                    FuelStationDetails()
+                  ],
+                ),
               ),
             ),
             bottom: PreferredSize(
@@ -38,13 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 50,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Colors.white30,
+                  color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(20)),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
                 ),
                 child: const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(left: 20, top: 15),
                   child: Text(
                     "Your Vehicle Details",
                     style: mainHeading,
@@ -68,36 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-
-      // const SizedBox(height: 10,),
-      //  const SizedBox(
-      //   height: 10,
-      // ),
-      // Row(
-      //   children: [
-      //     PrimaryButton(
-      //         onTap: () {
-      //           Navigator.push(
-      //             context,
-      //             MaterialPageRoute(builder: (context) => const AddVehicleScreen()),
-      //           );
-      //         },
-      //         text: "Add vehicle",
-      //         buttonColor: primaryColor,
-      //         textColor: textColor),
-      //   ],
-      // ),
-      // const SizedBox(
-      //   height: 10,
-      // ),
-      // Row(
-      //   children: [
-      //     PrimaryButton(
-      //         onTap: () {},
-      //         text: "Add Fuel Request",
-      //         buttonColor: primaryColor,
-      //         textColor: textColor),
-
       bottomNavigationBar: const CustomBottomNavigationBar(index: 0),
     );
   }
