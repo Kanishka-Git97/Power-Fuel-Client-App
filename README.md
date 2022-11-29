@@ -22,7 +22,6 @@ Development Directory
           -controllers
           -constants
           -models
-	  -providers
           -presenatation (All the UI Element)
             - atoms (common widgets)
             - molecules (custome widgets)
