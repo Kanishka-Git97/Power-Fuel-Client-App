@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/presentation/screens/Vehicle/add_vehicle_screen.dart';
 
 import '../constants/constants.dart';
 import '../presentation/screens/registration_screen.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: primaryColor),
                   borderRadius: BorderRadius.circular(12)))),
-      home: const LoginScreen(),
+      home: const AddVehicleScreen(),
     );
   }
 }
