@@ -33,35 +33,46 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.white,
             pinned: true,
             elevation: 5,
-            expandedHeight: 300,
+            expandedHeight: 350,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                color: Colors.white,
+                color: const Color(0xffC95F0D),
                 // margin: const EdgeInsets.only(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 40),
-                          child: CircleAvatar(),
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20, top: 40),
+                              child: Text(greetingMessage(),
+                                  textAlign: TextAlign.start,
+                                  style: mainHeadingLight),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(left:20, top: 4),
+                              child: Text(
+                                "Sandini Kaveesha",
+                                style: subHeadingLight,
+                              ),
+                            ),
+                          ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, top: 40),
-                          child: Text(greetingMessage(),
-                              textAlign: TextAlign.start, style: mainHeading),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only( top: 40),
-                          child: Text(
-                            "Sandini",
-                            style: mainHeading,
+                       const  Padding(
+                          padding: EdgeInsets.only(right: 20, top: 40),
+                          child: Icon(
+                            Icons.local_gas_station,
+                            color: Colors.white,
+                            size: 40,
                           ),
                         ),
                       ],
                     ),
-                    FuelStationDetails()
+                    SizedBox(height: 10,),
+                    const FuelStationDetails()
                   ],
                 ),
               ),
@@ -97,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fuelType: "Petrol",
                     availableQty: "3");
               },
-              childCount: 10,
+              childCount: 4,
             ),
           ),
         ],
