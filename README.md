@@ -26,5 +26,6 @@ Development Directory
             - atoms (common widgets)
             - molecules (custome widgets)
             - screens 
+	  -providers
 		
 	
