@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 import '../constants/constants.dart';
 import '../presentation/screens/registration_screen.dart';
 import 'presentation/screens/login_screen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -19,18 +17,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Power-Fuel-Client-App',
       theme: ThemeData(
-
-        inputDecorationTheme: InputDecorationTheme(
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: secondaryColor),
-            borderRadius: BorderRadius.circular(12)
-          ),
-          focusedBorder:OutlineInputBorder(
-            borderSide: const BorderSide(color: primaryColor),
-            borderRadius: BorderRadius.circular(12)
-          )
-        )
-      ),
+          inputDecorationTheme: InputDecorationTheme(
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: secondaryColor),
+                  borderRadius: BorderRadius.circular(12)),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: primaryColor),
+                  borderRadius: BorderRadius.circular(12)))),
       home: const LoginScreen(),
     );
   }

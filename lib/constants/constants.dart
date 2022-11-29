@@ -22,3 +22,10 @@ const TextStyle formTitle =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
 const TextStyle formTitleLight =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Colors.white);
+
+
+//Database Setting
+String baseUrl = "http://192.168.8.101:8080";
+
+
+
