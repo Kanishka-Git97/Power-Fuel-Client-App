@@ -35,10 +35,14 @@ class CustomerRepository implements CustomerServices {
     var url = Uri.parse('$baseUrl/customers/login');
     var response = await http.post(url,
         headers: {"Accept": "application/json"},
-        body: {"email": email, "password": password});
+        body: {"email": '$email', "password": '$password'});
+    print(response.contentLength);
     if (response.statusCode == 200) {
-      var body = json.decode(response.body);
-      return Customer.fromJson(body);
+      if (response.contentLength! > 0) {
+        var body = json.decode(response.body);
+        return Customer.fromJson(body);
+      }
+      return Customer();
     }
     return Customer();
   }

@@ -19,14 +19,14 @@ class Customer {
       this.station});
 
   Customer.fromJson(Map<String, dynamic> json) {
-    id = json['id'] == null ? null : int.tryParse(json['id']);
-    name = json['name'] == null ? null : json['name'].toString();
-    address = json['address'] == null ? null : json['address'].toString();
-    nic = json['nic'] == null ? null : json['nic'].toString();
-    email = json['email'] == null ? null : json['email'].toString();
-    password = json['password'] == null ? null : json['password'].toString();
-    district = json['district'] == null ? null : int.tryParse(json['district']);
-    station = json['station'] == null ? null : int.tryParse(json['station']);
+    id = json['id'];
+    name = json['name'];
+    address = json['address'];
+    nic = json['nic'];
+    email = json['email'];
+    password = json['password'];
+    district = json['district'];
+    station = json['station'];
   }
 
   Map<String, dynamic> toJson() {
