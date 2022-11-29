@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.white,
             pinned: true,
             elevation: 5,
-            expandedHeight: 300,
+            expandedHeight: 350,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 color: const Color(0xffC95F0D),
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: mainHeadingLight),
                             ),
                             const Padding(
-                              padding: EdgeInsets.only(top: 4),
+                              padding: EdgeInsets.only(left:20, top: 4),
                               child: Text(
                                 "Sandini Kaveesha",
                                 style: subHeadingLight,
@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 10,),
                     const FuelStationDetails()
                   ],
                 ),
@@ -107,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fuelType: "Petrol",
                     availableQty: "3");
               },
-              childCount: 10,
+              childCount: 4,
             ),
           ),
         ],

@@ -11,14 +11,14 @@ class FuelStationDetails extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
+        boxShadow: const [
+           BoxShadow(
             color: Color.fromARGB(179, 219, 137, 137),
             blurRadius: 1,
             offset: Offset(2, 2)
           )
         ],
-          borderRadius: BorderRadius.circular(10), color: Colors.redAccent),
+          borderRadius: BorderRadius.circular(10), color: Color(0xffFFAB40)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,17 +28,17 @@ class FuelStationDetails extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "Super Shead - Karapitiya",
-                    style: subHeadingLight,
+                    style: subHeading,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 5,
                   ),
-                  const Text(
+                  Text(
                     "Galle",
-                    style: formTitleLight,
+                    style: formTitle,
                   ),
                 ],
               ),
@@ -104,6 +104,16 @@ class FuelStationDetails extends StatelessWidget {
                   ],
                 ),
               ),
+            ],
+          ),
+          const SizedBox(height: 10,),
+          Row(
+            children: const [
+              Icon(Icons.circle, color: Colors.green, size: 10,),
+              SizedBox(width: 3,),
+              Text("Next Stock Reciving : ", style: normalText, ),
+              SizedBox(width: 3,),
+              Text("date ", style: normalText, )
             ],
           )
         ],
