@@ -24,7 +24,11 @@ class VehicleDetailsCard extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
               child: Container(
-                color: Colors.cyan.shade100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: primaryColor, width: 1, style: BorderStyle.solid),
+                  borderRadius: const BorderRadius.all(Radius.circular(10))
+                ),
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: Column(
                   children: [

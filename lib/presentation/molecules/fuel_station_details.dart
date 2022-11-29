@@ -11,24 +11,38 @@ class FuelStationDetails extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: primaryColor),
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromARGB(179, 219, 137, 137),
+            blurRadius: 1,
+            offset: Offset(2, 2)
+          )
+        ],
+          borderRadius: BorderRadius.circular(10), color: Colors.redAccent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Super Shead - Karapitiya",
-            style: subHeading,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          const Text(
-            "Galle",
-            style: formTitle,
-          ),
-          const SizedBox(
-            height: 20,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Super Shead - Karapitiya",
+                    style: subHeadingLight,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  const Text(
+                    "Galle",
+                    style: formTitleLight,
+                  ),
+                ],
+              ),
+            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -45,15 +59,26 @@ class FuelStationDetails extends StatelessWidget {
                 ),
                 child: Column(
                   children: const [
-                    Text("Available Petrol Quantity", style: normalText, textAlign: TextAlign.center,),
-                    SizedBox(height: 5,),
-                    Text("3000L", style: mainHeading,)
+                    Icon(Icons.gas_meter, color: primaryColor,size: 30,),
+                    Text(
+                      "Petrol",
+                      style: subHeading,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "3000L",
+                      style: mainHeading,
+                    )
                   ],
                 ),
               ),
-              const SizedBox(width: 50,),
+              const SizedBox(
+                width: 50,
+              ),
               Container(
-                padding:const  EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
@@ -63,10 +88,19 @@ class FuelStationDetails extends StatelessWidget {
                   ),
                 ),
                 child: Column(
-                  children: const[
-                    Text("Available Diesel Quantity", style: normalText, textAlign: TextAlign.center,),
-                    SizedBox(height: 5,),
-                    Text("2500L", style: mainHeading,)
+                  children: const [
+                     Icon(Icons.gas_meter, color: primaryColor,size: 30,),
+                    Text(
+                      "Diesel",
+                      style: subHeading,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "2500L",
+                      style: mainHeading,
+                    )
                   ],
                 ),
               ),

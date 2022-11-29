@@ -37,7 +37,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           backgroundColor: Colors.white,
           color: Colors.white,
           activeColor: Colors.black,
-          tabBackgroundColor: Color.fromARGB(255, 228, 228, 228),
+          tabBackgroundColor: const Color.fromARGB(255, 228, 228, 228),
           gap: 5,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           
@@ -49,7 +49,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               },
             ),
