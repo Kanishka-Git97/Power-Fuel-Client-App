@@ -10,7 +10,6 @@ import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../../atoms/primary_button.dart';
-import 'view_vehicles_screen.dart';
 
 class AddVehicleScreen extends StatefulWidget {
   const AddVehicleScreen({Key? key}) : super(key: key);
@@ -164,9 +163,11 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                 child: Row(
                   children: [
                     PrimaryButton(
+
                         onTap: register,
                         text: "Register",
                         buttonColor: primaryColor,
+
                         textColor: Colors.white),
                   ],
                 ),
