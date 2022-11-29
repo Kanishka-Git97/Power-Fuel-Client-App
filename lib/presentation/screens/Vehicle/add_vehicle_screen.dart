@@ -7,7 +7,6 @@ import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../../atoms/primary_button.dart';
-import 'view_vehicles_screen.dart';
 
 class AddVehicleScreen extends StatefulWidget {
   const AddVehicleScreen({Key? key}) : super(key: key);
@@ -101,7 +100,7 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()));
+                                  builder: (context) =>  HomeScreen()));
                         },
                         text: "Submit",
                         buttonColor:primaryColor,

@@ -21,75 +21,76 @@ class VehicleDetailsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-            // borderRadius: BorderRadius.circular(10),
-            elevation: 5,
             child: Container(
-              color: Colors.white30,
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const Text(
-                        "Vehicle Registration Number : ",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
-                      ),
-                      Text(
-                        "    " + regiNo,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+              margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 20),
+              child: Container(
+                color: Colors.cyan.shade100,
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        const Text(
+                          "Vehicle Registration Number : ",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w600),
                         ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Vehicle Chassis Number : ",
-                        style: normalText,
-                      ),
-                      Text(
-                        "    " + chassisNo,
-                        style: normalText,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Vehicle Type : ",
-                        style: normalText,
-                      ),
-                      Text(
-                        "    " + vehicleType,
-                        style: normalText,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Available Quantity : ",
-                        style: normalText,
-                      ),
-                      Text(
-                        "    " + availableQty,
-                        style: normalText,
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          "    " + regiNo,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          "Vehicle Chassis Number : ",
+                          style: normalText,
+                        ),
+                        Text(
+                          "    " + chassisNo,
+                          style: normalText,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          "Vehicle Type : ",
+                          style: normalText,
+                        ),
+                        Text(
+                          "    " + vehicleType,
+                          style: normalText,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        const Text(
+                          "Available Quantity : ",
+                          style: normalText,
+                        ),
+                        Text(
+                          "    " + availableQty,
+                          style: normalText,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           );
