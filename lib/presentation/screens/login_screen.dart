@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/controllers/customer_controller.dart';
 import 'package:power_fuel_client_app/presentation/screens/registration_screen.dart';
+import 'package:power_fuel_client_app/providers/user_provider.dart';
 import 'package:power_fuel_client_app/repositories/customer_repository.dart';
+import 'package:provider/provider.dart';
 
 import '../../constants/constants.dart';
 import '../atoms/primary_button.dart';
@@ -51,7 +53,12 @@ class _LoginScreenState extends State<LoginScreen> {
     if (response.id == null)
       return notification("Email or Password is Incorrect!", false);
     else {
-      return notification("Logged In!", true);
+      context.read<User>().setUser(response);
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeScreen()),
+          ));
     }
   }
 

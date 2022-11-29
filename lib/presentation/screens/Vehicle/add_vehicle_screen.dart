@@ -149,7 +149,7 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                 height: 20,
               ),
               FormHelper.dropDownWidget(
-                  context, "  Select FUel Type", selectedfuel, _fuelTypes,
+                  context, "  Select Fuel Type", selectedfuel, _fuelTypes,
                   (onChangedVal) {
                 setState(() {
                   selectedfuel = onChangedVal;
@@ -163,11 +163,9 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                 child: Row(
                   children: [
                     PrimaryButton(
-
                         onTap: register,
                         text: "Register",
                         buttonColor: primaryColor,
-
                         textColor: Colors.white),
                   ],
                 ),

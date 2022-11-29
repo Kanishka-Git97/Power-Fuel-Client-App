@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/controllers/gas_station_controller.dart';
+import 'package:power_fuel_client_app/models/station.dart';
 import 'package:power_fuel_client_app/presentation/molecules/fuel_station_details.dart';
+import 'package:power_fuel_client_app/providers/user_provider.dart';
+import 'package:power_fuel_client_app/repositories/gas_station_repository.dart';
+import 'package:provider/provider.dart';
 import '../../constants/constants.dart';
+import '../../models/customer.dart';
 import '../molecules/vehicle_details_card.dart';
 import '../molecules/custom_bottom_navigation.dart';
 
@@ -12,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //Greeting Generator
   var timeNow = DateTime.now().hour;
   String greetingMessage() {
     if (timeNow <= 12) {
@@ -25,6 +32,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //Provider Callback
+    final Customer user = context.watch<User>().user;
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -45,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 20, top: 40),
@@ -52,16 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                   textAlign: TextAlign.start,
                                   style: mainHeadingLight),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left:20, top: 4),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20, top: 4),
                               child: Text(
-                                "Sandini Kaveesha",
+                                "${user.name}",
                                 style: subHeadingLight,
                               ),
                             ),
                           ],
                         ),
-                       const  Padding(
+                        const Padding(
                           padding: EdgeInsets.only(right: 20, top: 40),
                           child: Icon(
                             Icons.local_gas_station,
@@ -71,8 +83,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
-                    const FuelStationDetails()
+                    SizedBox(
+                      height: 10,
+                    ),
+                    FuelStationDetails(
+                      customer: user,
+                    )
                   ],
                 ),
               ),

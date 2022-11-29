@@ -33,4 +33,19 @@ class DistrictRepository implements DistrictServices {
     }
     return data;
   }
+
+  Future<District> getDistrict(id) async {
+    var data = {"id": id};
+    var url = Uri.parse('$baseUrl/districts/get');
+    var response = await http.post(url,
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: jsonEncode(data));
+    if (response.statusCode == 200) {
+      return District.fromJson(json.decode(response.body));
+    }
+    return District();
+  }
 }

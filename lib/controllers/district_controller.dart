@@ -9,4 +9,8 @@ class DistrictController {
   Future fetchDistrictsRaw() async {
     return services.getDistrictsRaw();
   }
+
+  Future<District> fetchDistrict(id) async {
+    return services.getDistrict(id);
+  }
 }
