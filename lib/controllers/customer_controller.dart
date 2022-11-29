@@ -13,4 +13,8 @@ class CustomerController {
   Future<int> validate(Customer customer) {
     return services.validate(customer);
   }
+
+  Future<Customer> login(String email, String password) {
+    return services.login(email, password);
+  }
 }

@@ -39,22 +39,22 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 40,
                 ),
                 GestureDetector(
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => const RegisterScreen()),
-                    ),
-                  );
-                },
-                child: const Text(
-                  "Don't have a account? SIgn Up here",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.blue),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const RegisterScreen()),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Don't have a account? SIgn Up here",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.blue),
+                  ),
                 ),
-              ),
                 const SizedBox(
                   height: 20,
                 ),

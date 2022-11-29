@@ -29,4 +29,17 @@ class CustomerRepository implements CustomerServices {
     var _response = response.body;
     return int.parse(_response);
   }
+
+  @override
+  Future<Customer> login(String email, String password) async {
+    var url = Uri.parse('$baseUrl/customers/login');
+    var response = await http.post(url,
+        headers: {"Accept": "application/json"},
+        body: {"email": email, "password": password});
+    if (response.statusCode == 200) {
+      var body = json.decode(response.body);
+      return Customer.fromJson(body);
+    }
+    return Customer();
+  }
 }

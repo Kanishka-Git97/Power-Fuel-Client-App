@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: primaryColor),
                   borderRadius: BorderRadius.circular(12)))),
-      home: const RegisterScreen(),
+      home: const LoginScreen(),
     );
   }
 }
