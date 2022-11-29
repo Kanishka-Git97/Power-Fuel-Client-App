@@ -63,6 +63,20 @@ class TextEditing extends State<RegisterScreen> {
     });
   }
 
+  //Notifications
+  notification(msg, bool success) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        backgroundColor: (success ? Colors.greenAccent : Colors.redAccent),
+        action: SnackBarAction(
+          label: 'Dismiss',
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+
   //Customer Registration
   Future register() async {
     //Front End Validation
@@ -72,30 +86,12 @@ class TextEditing extends State<RegisterScreen> {
         _emailController.value.text.isEmpty &&
         _passwordController.value.text.isEmpty &&
         _confirmPasswordController.value.text.isEmpty) {
-      return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Required Fields are Missing!'),
-          backgroundColor: (Colors.redAccent),
-          action: SnackBarAction(
-            label: 'Dismiss',
-            onPressed: () {},
-          ),
-        ),
-      );
+      return notification("Required Fields are Missing!", false);
     }
 
     if (_passwordController.text != _confirmPasswordController.text) {
-      return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Password Does not Match!'),
-          backgroundColor: (Colors.redAccent),
-          action: SnackBarAction(
-            label: 'Dismiss',
-            onPressed: () {},
-          ),
-        ),
-      );
-    } // TODO: Should add Snackbar
+      return notification("Passwords Does not Matched!", false);
+    }
 
     _customer.name = _nameController.text;
     _customer.nic = _nicController.text;
@@ -105,35 +101,18 @@ class TextEditing extends State<RegisterScreen> {
 
     //Backend Validation Request
     int _validatationResponse = await _customerController.validate(_customer);
-    if (_validatationResponse > 0) return print("Already Exist Account");
+    if (_validatationResponse > 0)
+      return notification("Already Exist Customer!", false);
     var response = await _customerController.register(_customer);
     if (response == "true") {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Successfully Registered'),
-          backgroundColor: (Colors.greenAccent),
-          action: SnackBarAction(
-            label: 'Dismiss',
-            onPressed: () {},
-          ),
-        ),
-      );
+      notification("Successfully Registered!", true);
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: ((context) => const HomeScreen()),
           ));
     } else {
-      return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Something Went Wrong!'),
-          backgroundColor: (Colors.redAccent),
-          action: SnackBarAction(
-            label: 'Dismiss',
-            onPressed: () {},
-          ),
-        ),
-      );
+      return notification("Something Went Wrong!", false);
     }
     //print(_customer.station);
   }
