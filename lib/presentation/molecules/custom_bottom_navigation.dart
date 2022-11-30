@@ -5,6 +5,7 @@ import 'package:power_fuel_client_app/presentation/screens/profile_details_scree
 import '../../../presentation/screens/fuel/request_fuel_screen.dart';
 
 import '../screens/Vehicle/add_vehicle_screen.dart';
+import '../screens/fuel/request_list_screen.dart';
 import '../screens/home_screen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -69,12 +70,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             GButton(
               icon: Icons.request_page,
               iconColor: Colors.black,
-              text: 'Request Fuel',
+              text: 'Requests',
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const RequestFuelScreen(),
+                    builder: (context) => const RequestListScreen(),
                   ),
                 );
               },

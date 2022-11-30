@@ -3,6 +3,7 @@ import 'package:power_fuel_client_app/presentation/atoms/custom_icon_button.dart
 import 'package:power_fuel_client_app/presentation/screens/profile_details_screen.dart';
 
 import '../../constants/constants.dart';
+import '../screens/fuel/request_fuel_screen.dart';
 
 class VehicleDetailsCard extends StatelessWidget {
   const VehicleDetailsCard(
@@ -102,18 +103,33 @@ class VehicleDetailsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomIconButton(
-                      customIcon: Icons.qr_code,
-                      onTapButton: () {},
-                      ),
-                      CustomIconButton(
-                      customIcon: Icons.add,
-                      onTapButton: () {},),
-                      CustomIconButton(
-                      customIcon: Icons.edit,
-                      onTapButton: () {},),
-                       CustomIconButton(
-                      customIcon: Icons.delete,
-                      onTapButton: () {},),
+                    customIcon: Icons.qr_code,
+                    onTapButton: () {},
+                  ),
+                  CustomIconButton(
+                    customIcon: Icons.add,
+                    onTapButton: () {
+                      
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RequestFuelScreen(
+                              regiNo: 'FJIT4849',
+                              vehicleType: "Van",
+                              availableQty: "3",
+                            ),
+                          ),
+                        );
+                    },
+                  ),
+                  CustomIconButton(
+                    customIcon: Icons.edit,
+                    onTapButton: () {},
+                  ),
+                  CustomIconButton(
+                    customIcon: Icons.delete,
+                    onTapButton: () {},
+                  ),
                 ],
               ),
             ],
