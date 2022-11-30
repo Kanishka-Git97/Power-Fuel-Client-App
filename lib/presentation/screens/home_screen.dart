@@ -34,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     //Provider Callback
     final Customer user = context.watch<User>().user;
-
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -83,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     FuelStationDetails(

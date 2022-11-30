@@ -5,6 +5,7 @@ class Vehicle {
   int? availableQuota;
   int? vehicleType;
   int? fuelType;
+  int? customer;
 
   Vehicle(
       {this.id,
@@ -12,7 +13,8 @@ class Vehicle {
       this.chassis,
       this.availableQuota,
       this.vehicleType,
-      this.fuelType});
+      this.fuelType,
+      this.customer});
 
   Vehicle.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -21,6 +23,7 @@ class Vehicle {
     availableQuota = json['availableQuota'];
     vehicleType = json['vehicleType'];
     fuelType = json['fuelType'];
+    customer = json['customer'];
   }
 
   Map<String, dynamic> toJson() {
@@ -35,6 +38,7 @@ class Vehicle {
     }
     data['vehicleType'] = this.vehicleType;
     data['fuelType'] = this.fuelType;
+    data['customer'] = this.customer;
     return data;
   }
 }
