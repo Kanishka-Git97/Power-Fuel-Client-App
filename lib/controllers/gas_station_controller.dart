@@ -7,4 +7,8 @@ class GasStationController {
   Future fetchGasStationRaw(district) async {
     return services.getStationRaw(district);
   }
+
+  Future getStation(id) {
+    return services.getStation(id);
+  }
 }

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
 import 'package:power_fuel_client_app/controllers/vehicle_controller.dart';
+import 'package:power_fuel_client_app/models/customer.dart';
 import 'package:power_fuel_client_app/models/vehicle.dart';
 import 'package:power_fuel_client_app/presentation/atoms/navigation_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
 import 'package:power_fuel_client_app/presentation/molecules/custom_bottom_navigation.dart';
 import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
+import 'package:provider/provider.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
+import '../../../providers/user_provider.dart';
 import '../../atoms/primary_button.dart';
 
 class AddVehicleScreen extends StatefulWidget {
@@ -76,6 +79,11 @@ class _AddVehicleState extends State<AddVehicleScreen> {
     if (response == 'Duplicate') {
       return notification("Already Exist Vehicle Details!", false);
     } else {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeScreen()),
+          ));
       return notification("Vehicle is Successfully Registered", true);
     }
   }
@@ -88,6 +96,11 @@ class _AddVehicleState extends State<AddVehicleScreen> {
 
   @override
   Widget build(BuildContext context) {
+    //Provider Callback
+    final Customer user = context.watch<User>().user;
+    setState(() {
+      _vehicle.customer = user.id;
+    });
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,
@@ -149,7 +162,7 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                 height: 20,
               ),
               FormHelper.dropDownWidget(
-                  context, "  Select FUel Type", selectedfuel, _fuelTypes,
+                  context, "  Select Fuel Type", selectedfuel, _fuelTypes,
                   (onChangedVal) {
                 setState(() {
                   selectedfuel = onChangedVal;
@@ -163,11 +176,9 @@ class _AddVehicleState extends State<AddVehicleScreen> {
                 child: Row(
                   children: [
                     PrimaryButton(
-
                         onTap: register,
                         text: "Register",
                         buttonColor: primaryColor,
-
                         textColor: Colors.white),
                   ],
                 ),
