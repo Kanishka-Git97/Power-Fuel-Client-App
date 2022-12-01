@@ -1,18 +1,23 @@
-class District {
+class VehicleType {
   int? id;
   String? type;
+  double? quota;
 
-  District({this.id, this.type});
+  VehicleType({this.id, this.type, this.quota});
 
-  District.fromJson(Map<String, dynamic> json) {
+  VehicleType.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     type = json['type'];
+    quota = json['quota'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['district'] = this.type;
+    if (this.id != null) {
+      data['id'] = this.id;
+    }
+    data['type'] = this.type;
+    data['quota'] = this.quota;
     return data;
   }
-  }
+}

@@ -43,16 +43,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Future login() async {
     //Front End Validation
     if (_emailController.value.text.isEmpty &&
-        _passwordController.value.text.isEmpty)
+        _passwordController.value.text.isEmpty) {
       return notification("Required Fields are Missing!", false);
+    }
 
     var response = await _customerController.login(
         _emailController.text, _passwordController.text);
-    print("Email:${_emailController.text}");
-    print("Password: ${_passwordController.text}");
-    if (response.id == null)
+
+    if (response.id == null) {
       return notification("Email or Password is Incorrect!", false);
-    else {
+    } else {
       context.read<User>().setUser(response);
       Navigator.pushReplacement(
           context,

@@ -2,7 +2,7 @@ class Vehicle {
   int? id;
   String? registration;
   String? chassis;
-  int? availableQuota;
+  double? availableQuota;
   int? vehicleType;
   int? fuelType;
   int? customer;

@@ -1,0 +1,11 @@
+import 'package:power_fuel_client_app/models/token.dart';
+import 'package:power_fuel_client_app/repositories/token_service.dart';
+
+class TokenController {
+  final TokenServices services;
+
+  TokenController(this.services);
+  Future<String> add(Token token) {
+    return services.add(token);
+  }
+}

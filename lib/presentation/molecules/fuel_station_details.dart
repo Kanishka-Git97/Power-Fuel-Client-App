@@ -41,6 +41,7 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
   @override
   void initState() {
     super.initState();
+
     getDetails(int.parse(widget.customer.station.toString()));
   }
 

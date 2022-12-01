@@ -22,24 +22,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  //Greeting Generator
-  var timeNow = DateTime.now().hour;
-  String greetingMessage() {
-    if (timeNow <= 12) {
-      return 'Good Morning, ';
-    } else if ((timeNow > 12) && (timeNow <= 16)) {
-      return 'Good Afternoon, ';
-    } else {
-      return 'Good Evening, ';
-    }
-  }
-
-
   @override
   Widget build(BuildContext context) {
-    //Provider Callback
-    final Customer user = context.watch<User>().user;
     return Scaffold(
       body: VehicleSliver(),
       bottomNavigationBar: const CustomBottomNavigationBar(index: 0),

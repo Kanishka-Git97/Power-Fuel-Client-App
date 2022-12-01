@@ -1,3 +1,4 @@
+import 'package:power_fuel_client_app/models/vehicle_type.dart';
 import 'package:power_fuel_client_app/repositories/vehicle_service.dart';
 
 import '../models/vehicle.dart';
@@ -16,5 +17,13 @@ class VehicleController {
 
   Future<String> save(Vehicle vehicle) {
     return services.register(vehicle);
+  }
+
+  Future<List<Vehicle>> fetchVehicles(int id) {
+    return services.getVehicles(id);
+  }
+
+  Future<VehicleType> getType(int id) {
+    return services.getType(id);
   }
 }

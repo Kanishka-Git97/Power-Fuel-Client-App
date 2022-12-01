@@ -1,25 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:power_fuel_client_app/controllers/vehicle_controller.dart';
+import 'package:power_fuel_client_app/models/vehicle.dart';
+import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
+import 'package:provider/provider.dart';
 
 import '../../constants/constants.dart';
+import '../../models/customer.dart';
+import '../../providers/user_provider.dart';
 import 'fuel_station_details.dart';
 import 'vehicle_details_card.dart';
 
-class VehicleSliver extends StatelessWidget {
+class VehicleSliver extends StatefulWidget {
   const VehicleSliver({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<VehicleSliver> createState() => _VehicleSliverState();
+}
 
-    var timeNow = DateTime.now().hour;
-  String greetingMessage() {
-    if (timeNow <= 12) {
-      return 'Good Morning, ';
-    } else if ((timeNow > 12) && (timeNow <= 16)) {
-      return 'Good Afternoon, ';
-    } else {
-      return 'Good Evening, ';
-    }
+class _VehicleSliverState extends State<VehicleSliver> {
+  //Dependency Injection
+  var _vehicleController = VehicleController(VehicleRepository());
+
+  //Provider Callback
+  Customer customer = Customer();
+
+  //GetDetails
+  Future<List<Vehicle>> getDetails(int id) async {
+    var response = await _vehicleController.fetchVehicles(id);
+    return response;
   }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    customer = context.watch<User>().user;
+    //Greeting Generator
+    var timeNow = DateTime.now().hour;
+    String greetingMessage() {
+      if (timeNow <= 12) {
+        return 'Good Morning, ';
+      } else if ((timeNow > 12) && (timeNow <= 16)) {
+        return 'Good Afternoon, ';
+      } else {
+        return 'Good Evening, ';
+      }
+    }
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -40,6 +70,7 @@ class VehicleSliver extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 20, top: 40),
@@ -47,16 +78,16 @@ class VehicleSliver extends StatelessWidget {
                                   textAlign: TextAlign.start,
                                   style: mainHeadingLight),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(left:20, top: 4),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20, top: 4),
                               child: Text(
-                                "Sandini Kaveesha",
+                                "${customer.name}",
                                 style: subHeadingLight,
                               ),
                             ),
                           ],
                         ),
-                       const  Padding(
+                        const Padding(
                           padding: EdgeInsets.only(right: 20, top: 40),
                           child: Icon(
                             Icons.local_gas_station,
@@ -66,8 +97,12 @@ class VehicleSliver extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
-                    const FuelStationDetails()
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    FuelStationDetails(
+                      customer: customer,
+                    )
                   ],
                 ),
               ),
@@ -93,18 +128,29 @@ class VehicleSliver extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, int index) {
-                return const VehicleDetailsCard(
-                    regiNo: "FJIT4849",
-                    chassisNo: "FDDFJO56544545",
-                    vehicleType: "Van",
-                    fuelType: "Petrol",
-                    availableQty: "3");
-              },
-              childCount: 4,
-            ),
+          FutureBuilder<List<dynamic>>(
+            builder: (BuildContext context, snapshot) =>
+                snapshot.connectionState == ConnectionState.waiting
+                    ? SliverToBoxAdapter(child: LinearProgressIndicator())
+                    : snapshot.hasData
+                        ? SliverList(
+                            delegate: SliverChildBuilderDelegate(
+                                (_, index) => VehicleDetailsCard(
+                                      vehicle: (snapshot.data
+                                          as List<Vehicle>)[index],
+                                    ),
+                                childCount:
+                                    (snapshot.data as List<Vehicle>).length))
+                        : const SliverToBoxAdapter(
+                            child: Center(
+                              child: Text(
+                                'No Data Found',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+            future: getDetails(int.parse(customer.id.toString())),
           ),
         ],
       ),
