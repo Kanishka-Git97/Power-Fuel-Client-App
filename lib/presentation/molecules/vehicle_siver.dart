@@ -23,6 +23,7 @@ class _VehicleSliverState extends State<VehicleSliver> {
 
   //Provider Callback
   Customer customer = Customer();
+  int? count;
 
   //GetDetails
   Future<List<Vehicle>> getDetails(int id) async {
@@ -61,7 +62,7 @@ class _VehicleSliverState extends State<VehicleSliver> {
             expandedHeight: 350,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                color: Color.fromARGB(255, 87, 171, 255),
+                color: const Color(0xffC95F0D),
                 // margin: const EdgeInsets.only(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,6 +151,8 @@ class _VehicleSliverState extends State<VehicleSliver> {
                               ),
                             ),
                           ),
+                       
+                          
             future: getDetails(int.parse(customer.id.toString())),
           ),
         ],

@@ -105,11 +105,11 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
                     children: [
                       Text(
                         "${widget.vehicle.registration}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w700),
                       ),
                       Text("${widget.vehicle.chassis} / ${_vehicleType.type}",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14, fontWeight: FontWeight.w300)),
                     ],
                   ),
@@ -131,11 +131,11 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
                 children: [
                   Text(
                     "${widget.vehicle.availableQuota} L",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                   ),
                   Text(
                     "/ ${_vehicleType.quota} L",
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -145,7 +145,11 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomIconButton(
+
+                  Stack(
+                    children: [
+
+                      CustomIconButton(
                     customIcon: Icons.qr_code,
                     onTapButton: () {
                       print(_tokenValidation);
@@ -159,6 +163,14 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
                         notification("Please Request Quota For the QR", false);
                       }
                     },
+                  ),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Icon(Icons.circle, 
+                    size: 12, 
+                    color: _tokenValidation != "0" ? Colors.green : secondaryColor,),)
+                    ],
                   ),
                   CustomIconButton(
                     customIcon: Icons.add,

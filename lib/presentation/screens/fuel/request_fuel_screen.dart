@@ -109,12 +109,12 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
                           children: [
                             Text(
                               "${widget.vehicle.registration}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.w500),
                             ),
                             Text(
                                 "${widget.vehicle.chassis} / ${widget.type.type}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w300)),
                           ],
                         ),
@@ -124,13 +124,13 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
                               children: [
                                 Text(
                                   "${widget.vehicle.availableQuota} L",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 Text("/ ${widget.type.quota} L",
                                     style:
-                                        TextStyle(fontWeight: FontWeight.bold))
+                                        const TextStyle(fontWeight: FontWeight.bold))
                               ],
                             )
                           ],
@@ -166,7 +166,7 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {Navigator.pop(context);},
                           style: OutlinedButton.styleFrom(
                               minimumSize: const Size(120, 50),
                               textStyle: const TextStyle(fontSize: 16),

@@ -21,7 +21,6 @@ class TokenRepository implements TokenServices {
 
   @override
   Future<String> validate(int id) async {
-    print("validation $id");
     var data = {"id": id};
     var url = Uri.parse('$baseUrl/token/validate');
     var response = await http.post(url,

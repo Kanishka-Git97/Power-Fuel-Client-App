@@ -68,7 +68,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               },
             ),
             GButton(
-              icon: Icons.request_page,
+              icon: Icons.list,
               iconColor: Colors.black,
               text: 'Requests',
               onPressed: () {
