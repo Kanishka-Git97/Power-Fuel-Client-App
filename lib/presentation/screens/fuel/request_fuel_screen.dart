@@ -11,6 +11,7 @@ import '../../../constants/constants.dart';
 import '../../../presentation/molecules/custom_bottom_navigation.dart';
 import '../../../providers/user_provider.dart';
 import '../../atoms/navigation_button.dart';
+import '../home_screen.dart';
 
 class RequestFuelScreen extends StatefulWidget {
   const RequestFuelScreen({Key? key, required this.vehicle, required this.type})
@@ -61,8 +62,18 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
     token.requestedAt = DateTime.now().toString();
     token.status = "Pending";
     var response = await _tokenController.add(token);
-    if (response == "true")
+    print(response);
+    if (response == "true") {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: ((context) => const HomeScreen()),
+          ));
       return notification("Token Requested Successfully", true);
+    }
+    if (response == "already listed") {
+      return notification("Already Pending Request Available!", false);
+    }
   }
 
   @override

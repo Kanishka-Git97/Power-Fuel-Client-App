@@ -61,7 +61,7 @@ class _VehicleSliverState extends State<VehicleSliver> {
             expandedHeight: 350,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
-                color: const Color(0xffC95F0D),
+                color: Color.fromARGB(255, 87, 171, 255),
                 // margin: const EdgeInsets.only(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,8 +115,8 @@ class _VehicleSliverState extends State<VehicleSliver> {
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10),
-                      topRight: Radius.circular(10)),
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.only(left: 20, top: 15),

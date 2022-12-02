@@ -8,4 +8,12 @@ class TokenController {
   Future<String> add(Token token) {
     return services.add(token);
   }
+
+  Future<String> validate(int id) {
+    return services.validate(id);
+  }
+
+  Future<Token> getToken(int id) {
+    return services.getToken(id);
+  }
 }

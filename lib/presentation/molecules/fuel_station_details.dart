@@ -54,12 +54,12 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
       decoration: BoxDecoration(
           boxShadow: const [
             BoxShadow(
-                color: Color.fromARGB(179, 219, 137, 137),
+                color: Color.fromARGB(179, 109, 109, 109),
                 blurRadius: 1,
                 offset: Offset(2, 2))
           ],
           borderRadius: BorderRadius.circular(10),
-          color: const Color(0xffFFAB40)),
+          color: Color.fromARGB(255, 118, 231, 246)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

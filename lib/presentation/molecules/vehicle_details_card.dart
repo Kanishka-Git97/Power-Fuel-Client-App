@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/controllers/vehicle_controller.dart';
 import 'package:power_fuel_client_app/presentation/atoms/custom_icon_button.dart';
 import 'package:power_fuel_client_app/presentation/screens/profile_details_screen.dart';
+import 'package:power_fuel_client_app/presentation/screens/token/qr_view.dart';
 import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
 
 import '../../constants/constants.dart';
+import '../../controllers/token_controller.dart';
 import '../../models/vehicle.dart';
 import '../../models/vehicle_type.dart';
+import '../../repositories/token_repository.dart';
 import '../screens/fuel/request_fuel_screen.dart';
 
 class VehicleDetailsCard extends StatefulWidget {
@@ -21,9 +24,33 @@ class VehicleDetailsCard extends StatefulWidget {
 class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
   //Dependency Injection
   var _vehicleController = VehicleController(VehicleRepository());
+  var _tokenController = TokenController(TokenRepository());
+
   //Variables
   VehicleType _vehicleType = VehicleType();
+  String? _tokenValidation;
   String? _img;
+
+  //Token Validation Checker
+  Future tokenValidator() async {
+    _tokenValidation = await _tokenController
+        .validate(int.parse(widget.vehicle.id.toString()));
+  }
+
+  //Notifications
+  notification(msg, bool success) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        backgroundColor: (success ? Colors.greenAccent : Colors.redAccent),
+        action: SnackBarAction(
+          label: 'Dismiss',
+          onPressed: () {},
+        ),
+      ),
+    );
+  }
+
   //Get Vehicle Type Details
   Future getTypeDetails(int id) async {
     String? img;
@@ -53,6 +80,7 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
   void initState() {
     super.initState();
     getTypeDetails(int.parse(widget.vehicle.vehicleType.toString()));
+    tokenValidator();
   }
 
   @override
@@ -119,7 +147,18 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
                 children: [
                   CustomIconButton(
                     customIcon: Icons.qr_code,
-                    onTapButton: () {},
+                    onTapButton: () {
+                      print(_tokenValidation);
+                      if (_tokenValidation != "0") {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) =>
+                                    QRScreen(vehicle: widget.vehicle))));
+                      } else {
+                        notification("Please Request Quota For the QR", false);
+                      }
+                    },
                   ),
                   CustomIconButton(
                     customIcon: Icons.add,
