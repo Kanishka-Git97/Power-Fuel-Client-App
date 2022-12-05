@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //Colors
 const Color primaryColor = Colors.deepOrange;
-final Color secondaryColor = Colors.redAccent;
+const Color secondaryColor = Colors.redAccent;
 const Color textColor = Colors.white;
 final Color secondaryTextColor = Colors.grey.shade800;
 
@@ -26,4 +26,5 @@ const TextStyle formTitleLight =
 //Database Setting
 
 String baseUrl = "http://192.168.8.100:8080";
+
 // "http://192.168.8.101:8080";
