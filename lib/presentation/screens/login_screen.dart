@@ -128,8 +128,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                   ),
                 ),
+                const SizedBox(height: 10,),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => const RegisterScreen()),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Forgot Password",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.blue),
+                  ),
+                ),
                 const SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 Row(
                   children: [
