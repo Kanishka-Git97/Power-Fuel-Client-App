@@ -7,6 +7,7 @@ class Customer {
   String? password;
   int? district;
   int? station;
+  String? status;
 
   Customer(
       {this.id,
@@ -16,7 +17,8 @@ class Customer {
       this.email,
       this.password,
       this.district,
-      this.station});
+      this.station,
+      this.status});
 
   Customer.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -27,6 +29,7 @@ class Customer {
     password = json['password'];
     district = json['district'];
     station = json['station'];
+    status = json['status'];
   }
 
   Map<String, dynamic> toJson() {
@@ -41,7 +44,12 @@ class Customer {
     data['password'] = this.password == null ? null : this.password.toString();
     data['district'] = this.district == null ? null : this.district.toString();
     data['station'] = this.station == null ? null : this.station.toString();
-    ;
+    if (this.status == null) {
+      data['status'] = 'Pending';
+    } else {
+      data['status'] = this.status;
+    }
+
     return data;
   }
 }
