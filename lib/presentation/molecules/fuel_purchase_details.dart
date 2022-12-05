@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/constants/constants.dart';
-import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
 
 class FuelPurchaseDetails extends StatelessWidget {
   const FuelPurchaseDetails({Key? key}) : super(key: key);
@@ -10,65 +9,100 @@ class FuelPurchaseDetails extends StatelessWidget {
     return Container(
       width: double.maxFinite,
       height: 112,
-      // margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      // decoration: BoxDecoration(
-      //   color: Colors.white,
-      //   border:
-      //       Border.all(color: primaryColor, width: 1, style: BorderStyle.solid),
-      //   borderRadius: const BorderRadius.all(Radius.circular(10)),
-      // ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border:
+            Border.all(color: primaryColor, width: 1, style: BorderStyle.solid),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+      ),
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Text(
-                    "BHV-2794",
-                    style: subHeading,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "BHV-2794",
+                          style: subHeading,
+                        ),
+                      ),
+                      SizedBox(
+                    width: 20,
                   ),
-                  SizedBox(height: 5,),
-                  Text("2022-11-20", style: formTitle,)
+                  Text(
+                    "2022-11-20",
+                    style: formTitle,
+                  ),
+                    ],
+                  ),
+                  const SizedBox(height: 5,),
+                  Row(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "4L",
+                          style: subHeading,
+                        ),
+                      ),
+                      SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "Rs. 1500",
+                    style: formTitle,
+                  ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child:TextButton(
+                              onPressed: () {},
+                              style: TextButton.styleFrom(
+                                backgroundColor: primaryColor,
+                                  minimumSize: const Size(200, 30),
+                                  textStyle: const TextStyle(fontSize: 16),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  side: const BorderSide(color: primaryColor)),
+                              child: const Text(
+                                "Pay",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                  ) 
                 ],
               ),
-              const SizedBox(width: 30,),
               Container(
                 width: 80,
-                height: 80,
-                color: Colors.green,
+                height: 110,
                 child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 30),
-                  child: Text("Pending", style: normalTextLight,textAlign: TextAlign.center,),
+                  padding: EdgeInsets.symmetric(vertical: 45),
+                  child: Text(
+                    "Pending",
+                    style: normalTextLight,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  color: Colors.green,
                 ),
               ),
             ],
-          ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.end,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.only(right: 20),
-          //       child:OutlinedButton(
-          //                 onPressed: () {},
-          //                 style: OutlinedButton.styleFrom(
-          //                     minimumSize: const Size(100, 30),
-          //                     textStyle: const TextStyle(fontSize: 16),
-          //                     shape: RoundedRectangleBorder(
-          //                       borderRadius: BorderRadius.circular(12),
-          //                     ),
-          //                     side: const BorderSide(color: primaryColor)),
-          //                 child: const Text(
-          //                   "Pay",
-          //                   style: TextStyle(color: primaryColor),
-          //                 ),
-          //               ),
-          //     )
-          //   ],
-          // )
-        ],
+          ), 
+          
+        ], 
       ),
     );
   }

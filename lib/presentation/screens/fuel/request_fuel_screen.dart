@@ -175,7 +175,7 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
                               ),
                               side: const BorderSide(color: primaryColor)),
                           child: const Text(
-                            "Cancle",
+                            "Cancel",
                             style: TextStyle(color: primaryColor),
                           ),
                         ),
@@ -189,8 +189,8 @@ class _RequestFuelScreenState extends State<RequestFuelScreen> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          child: Text(
-                            "Confrim",
+                          child: const Text(
+                            "Confirm",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
