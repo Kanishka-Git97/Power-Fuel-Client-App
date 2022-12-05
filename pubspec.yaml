@@ -71,6 +71,7 @@ flutter:
     - assets/images/threewheelsized.png
     - assets/images/lorrysized.png
     - assets/images/Bussized.png
+    - assets/images/logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

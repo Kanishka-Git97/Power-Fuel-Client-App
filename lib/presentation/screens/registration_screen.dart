@@ -12,6 +12,7 @@ import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
 import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
 import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
 import 'package:power_fuel_client_app/presentation/screens/login_screen.dart';
+import 'package:power_fuel_client_app/presentation/screens/notifications/welcome_screen.dart';
 import 'package:power_fuel_client_app/repositories/customer_repository.dart';
 import 'package:power_fuel_client_app/repositories/district_repository.dart';
 import 'package:power_fuel_client_app/repositories/gas_station_repository.dart';
@@ -105,11 +106,12 @@ class TextEditing extends State<RegisterScreen> {
       return notification("Already Exist Customer!", false);
     var response = await _customerController.register(_customer);
     if (response == "true") {
-      notification("Successfully Registered!", true);
+      notification(
+          "Successfully Registered Please Wait for Verify account!", true);
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: ((context) => const HomeScreen()),
+            builder: ((context) => const WelcomeScreen()),
           ));
     } else {
       return notification("Something Went Wrong!", false);
