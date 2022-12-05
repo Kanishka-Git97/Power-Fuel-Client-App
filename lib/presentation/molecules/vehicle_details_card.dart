@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:power_fuel_client_app/controllers/vehicle_controller.dart';
 import 'package:power_fuel_client_app/presentation/atoms/custom_icon_button.dart';
+import 'package:power_fuel_client_app/presentation/screens/Vehicle/edit_vehicles_screen.dart';
 import 'package:power_fuel_client_app/presentation/screens/profile_details_screen.dart';
 import 'package:power_fuel_client_app/presentation/screens/token/qr_view.dart';
 import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
@@ -188,7 +189,9 @@ class _VehicleDetailsCardState extends State<VehicleDetailsCard> {
                   ),
                   CustomIconButton(
                     customIcon: Icons.edit,
-                    onTapButton: () {},
+                    onTapButton: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>EditVehicleScreen(vehicle: widget.vehicle)));
+                    },
                   ),
                   CustomIconButton(
                     customIcon: Icons.delete,

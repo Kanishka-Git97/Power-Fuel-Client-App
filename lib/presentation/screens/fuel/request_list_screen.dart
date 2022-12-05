@@ -20,7 +20,7 @@ class RequestListScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric( vertical: 30),
+        margin: const EdgeInsets.symmetric( vertical: 30, horizontal: 20),
         child: const FuelPurchaseDetails(),
       ),
       bottomNavigationBar: const CustomBottomNavigationBar(index: 2),
