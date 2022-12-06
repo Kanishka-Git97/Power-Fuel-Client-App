@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:power_fuel_client_app/presentation/screens/Vehicle/add_vehicle_screen.dart';
@@ -33,7 +34,14 @@ class MyApp extends StatelessWidget {
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: primaryColor),
                   borderRadius: BorderRadius.circular(12)))),
-      home: const LoginScreen(),
+      home: AnimatedSplashScreen.withScreenFunction(
+        splash: 'assets/images/logo.png',
+        screenFunction: () async {
+          return const LoginScreen();
+        },
+        splashTransition: SplashTransition.fadeTransition,
+        splashIconSize: 200,
+      ),
     );
   }
 }
