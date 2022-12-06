@@ -25,15 +25,15 @@ class FuelPurchaseDetails extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
+                    children:[
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           "BHV-2794",
                           style: subHeading,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                     width: 20,
                   ),
                   Text(
@@ -44,15 +44,15 @@ class FuelPurchaseDetails extends StatelessWidget {
                   ),
                   const SizedBox(height: 5,),
                   Row(
-                    children: const [
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           "4L",
                           style: subHeading,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                     width: 20,
                   ),
                   Text(

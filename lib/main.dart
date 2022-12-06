@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Power-Fuel-Client-App',
+      color: Colors.white,
       theme: ThemeData(
           inputDecorationTheme: InputDecorationTheme(
               enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: secondaryColor),
+                  borderSide: const BorderSide(color: secondaryColor),
                   borderRadius: BorderRadius.circular(12)),
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: primaryColor),
