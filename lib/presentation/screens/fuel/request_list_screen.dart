@@ -20,10 +20,12 @@ class RequestListScreen extends StatelessWidget {
           style: mainHeading,
         ),
       ),
-      body: Container(
-        color: Colors.white30,
-        margin: const EdgeInsets.symmetric( vertical: 30, horizontal: 20),
-        child: const FuelPurchaseDetails(),
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.white30,
+          padding: const EdgeInsets.symmetric( vertical: 30, horizontal: 20),
+          child: const FuelPurchaseDetails(),
+        ),
       ),
       bottomNavigationBar: const CustomBottomNavigationBar(index: 2),
     );

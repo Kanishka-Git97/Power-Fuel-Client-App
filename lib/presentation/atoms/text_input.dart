@@ -8,7 +8,8 @@ class TextInput extends StatelessWidget {
       required this.labelText,
       required this.keyboardType,
       this.controller,
-      this.obscureText = false})
+      this.obscureText = false,
+      this.enabled = true})
       : super(key: key);
 
   final String hintText;
@@ -16,10 +17,12 @@ class TextInput extends StatelessWidget {
   final TextInputType keyboardType;
   final TextEditingController? controller;
   final bool obscureText;
+  final bool? enabled;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      enabled: enabled,
       style: formTitle,
       decoration: InputDecoration(
         hintText: hintText,

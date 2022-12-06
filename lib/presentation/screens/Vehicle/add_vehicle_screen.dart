@@ -113,7 +113,7 @@ class _AddVehicleState extends State<AddVehicleScreen> {
       ),
       body: Container(
         color: Colors.white30,
-        margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(

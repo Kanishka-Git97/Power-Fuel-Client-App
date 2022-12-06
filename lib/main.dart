@@ -28,6 +28,9 @@ class MyApp extends StatelessWidget {
       color: Colors.white,
       theme: ThemeData(
           inputDecorationTheme: InputDecorationTheme(
+            disabledBorder:OutlineInputBorder(
+                  borderSide: const BorderSide(color: secondaryColor),
+                  borderRadius: BorderRadius.circular(12)) ,
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: secondaryColor),
                   borderRadius: BorderRadius.circular(12)),
