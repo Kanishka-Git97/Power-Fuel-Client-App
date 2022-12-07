@@ -30,19 +30,23 @@ class FuelPurchaseDetails extends StatelessWidget {
                         padding: EdgeInsets.only(left: 20),
                         child: Text(
                           "BHV-2794",
-                          style: subHeading,
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                       SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    "2022-11-20",
-                    style: formTitle,
-                  ),
+                        width: 20,
+                      ),
+                      Text(
+                        "2022-11-20",
+                        style: formTitle,
+                      ),
                     ],
                   ),
-                  const SizedBox(height: 5,),
+                  const SizedBox(
+                    height: 5,
+                  ),
                   Row(
                     children: const [
                       Padding(
@@ -53,32 +57,32 @@ class FuelPurchaseDetails extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                    width: 20,
-                  ),
-                  Text(
-                    "Rs. 1500",
-                    style: formTitle,
-                  ),
+                        width: 20,
+                      ),
+                      Text(
+                        "Rs. 1500",
+                        style: formTitle,
+                      ),
                     ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child:TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                backgroundColor: primaryColor,
-                                  minimumSize: const Size(200, 30),
-                                  textStyle: const TextStyle(fontSize: 16),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  side: const BorderSide(color: primaryColor)),
-                              child: const Text(
-                                "Pay",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                  ) 
+                    child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                          backgroundColor: primaryColor,
+                          minimumSize: const Size(200, 30),
+                          textStyle: const TextStyle(fontSize: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          side: const BorderSide(color: primaryColor)),
+                      child: const Text(
+                        "Pay",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  )
                 ],
               ),
               Container(
@@ -100,9 +104,8 @@ class FuelPurchaseDetails extends StatelessWidget {
                 ),
               ),
             ],
-          ), 
-          
-        ], 
+          ),
+        ],
       ),
     );
   }
