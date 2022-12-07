@@ -119,8 +119,8 @@ class _VehicleSliverState extends State<VehicleSliver> {
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 20, top: 15),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Text(
                     "Your Vehicle Details",
                     style: mainHeading,
@@ -132,7 +132,7 @@ class _VehicleSliverState extends State<VehicleSliver> {
           FutureBuilder<List<dynamic>>(
             builder: (BuildContext context, snapshot) =>
                 snapshot.connectionState == ConnectionState.waiting
-                    ? SliverToBoxAdapter(child: LinearProgressIndicator())
+                    ? const SliverToBoxAdapter(child: LinearProgressIndicator())
                     : snapshot.hasData
                         ? SliverList(
                             delegate: SliverChildBuilderDelegate(

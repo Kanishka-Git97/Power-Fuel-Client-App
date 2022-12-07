@@ -10,7 +10,7 @@ import '../../models/district.dart';
 import '../../models/station.dart';
 
 class FuelStationDetails extends StatefulWidget {
-  FuelStationDetails({Key? key, required this.customer}) : super(key: key);
+  const FuelStationDetails({Key? key, required this.customer}) : super(key: key);
   final Customer customer;
 
   @override
@@ -100,8 +100,8 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
                   ),
                 ),
                 child: Column(
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                       Icons.ev_station_sharp,
                       color: primaryColor,
                       size: 30,
@@ -110,7 +110,7 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
                       "Petrol",
                       style: subHeading,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -134,8 +134,8 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
                   ),
                 ),
                 child: Column(
-                  children: const [
-                    Icon(
+                  children: [
+                    const Icon(
                       Icons.ev_station_sharp,
                       color: primaryColor,
                       size: 30,
@@ -144,7 +144,7 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
                       "Diesel",
                       style: subHeading,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -160,20 +160,20 @@ class _FuelStationDetailsState extends State<FuelStationDetails> {
             height: 10,
           ),
           Row(
-            children: const [
-              Icon(
+            children: [
+              const Icon(
                 Icons.circle,
                 color: Colors.green,
                 size: 10,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
               Text(
                 "Next Stock Receiving : ",
                 style: normalText,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
               Text(

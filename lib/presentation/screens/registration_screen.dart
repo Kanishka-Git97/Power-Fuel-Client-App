@@ -1,23 +1,20 @@
 // ignore_for_file: unnecessary_new
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:power_fuel_client_app/constants/constants.dart';
-import 'package:power_fuel_client_app/controllers/customer_controller.dart';
-import 'package:power_fuel_client_app/controllers/district_controller.dart';
-import 'package:power_fuel_client_app/controllers/gas_station_controller.dart';
-import 'package:power_fuel_client_app/models/customer.dart';
-import 'package:power_fuel_client_app/presentation/atoms/primary_button.dart';
-import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
-import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
-import 'package:power_fuel_client_app/presentation/screens/login_screen.dart';
-import 'package:power_fuel_client_app/presentation/screens/notifications/welcome_screen.dart';
-import 'package:power_fuel_client_app/repositories/customer_repository.dart';
-import 'package:power_fuel_client_app/repositories/district_repository.dart';
-import 'package:power_fuel_client_app/repositories/gas_station_repository.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
-import 'package:http/http.dart' as http;
+import '../../constants/constants.dart';
+import '../../controllers/customer_controller.dart';
+import '../../controllers/district_controller.dart';
+import '../../controllers/gas_station_controller.dart';
+import '../../models/customer.dart';
+import '../../presentation/atoms/primary_button.dart';
+import '../../presentation/atoms/text_input.dart';
+import '../../presentation/screens/login_screen.dart';
+import '../../presentation/screens/notifications/welcome_screen.dart';
+import '../../repositories/customer_repository.dart';
+import '../../repositories/district_repository.dart';
+import '../../repositories/gas_station_repository.dart';
+
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -129,6 +126,7 @@ class TextEditing extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color:  Colors.white30,
         margin: const EdgeInsets.only(top: 50, bottom: 30, left: 20, right: 20),
         width: double.infinity,
         child: SingleChildScrollView(
@@ -168,7 +166,7 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
+              Text(
                 "Account Information",
                 style: formTitle,
               ),
@@ -211,7 +209,7 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Text(
+              Text(
                 "Setup Gas Station Information",
                 style: formTitle,
               ),
@@ -241,8 +239,8 @@ class TextEditing extends State<RegisterScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   "Setup Your Login Details",
                   style: formTitle,

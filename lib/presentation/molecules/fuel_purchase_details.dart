@@ -25,9 +25,9 @@ class FuelPurchaseDetails extends StatelessWidget {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
+                    children:[
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           "BHV-2794",
                           style: TextStyle(
@@ -36,33 +36,33 @@ class FuelPurchaseDetails extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        "2022-11-20",
-                        style: formTitle,
-                      ),
+                    width: 20,
+                  ),
+                  Text(
+                    "2022-11-20",
+                    style: formTitle,
+                  ),
                     ],
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Row(
-                    children: const [
+                    children:  [
                       Padding(
-                        padding: EdgeInsets.only(left: 20),
+                        padding: const EdgeInsets.only(left: 20),
                         child: Text(
                           "4L",
                           style: subHeading,
                         ),
                       ),
                       SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        "Rs. 1500",
-                        style: formTitle,
-                      ),
+                    width: 20,
+                  ),
+                  Text(
+                    "Rs. 1500",
+                    style: formTitle,
+                  ),
                     ],
                   ),
                   Padding(

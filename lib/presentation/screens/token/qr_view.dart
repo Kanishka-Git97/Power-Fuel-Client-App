@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:power_fuel_client_app/models/vehicle.dart';
-import 'package:power_fuel_client_app/presentation/atoms/navigation_button.dart';
-import 'package:power_fuel_client_app/repositories/token_repository.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import '../../../models/vehicle.dart';
+import '../../../presentation/atoms/navigation_button.dart';
+import '../../../repositories/token_repository.dart';
+
 
 import '../../../constants/constants.dart';
 import '../../../controllers/token_controller.dart';
@@ -42,71 +43,75 @@ class _QRScreenState extends State<QRScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white30,
+        elevation: 0,
         leading: const NavigationButton(),
-        title: const Text("Token"),
+        title: Text("Token",style: mainHeading,),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Center(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                "${widget.vehicle.registration}",
-                style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              QrImage(
-                data: '${token.id}',
-                version: QrVersions.auto,
-                size: 320,
-                gapless: false,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircleAvatar(
-                        backgroundColor: token.status == "Pending"
-                            ? Colors.orangeAccent
-                            : Colors.greenAccent,
-                      )),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text("${token.status}"),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "${token.qty} L",
-                    style: TextStyle(
-                        color: Colors.grey.shade800,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.local_gas_station,
-                    color: Colors.grey.shade800,
-                    size: 50,
-                  )
-                ],
-              )
-            ],
+      body: Container(
+        color:  Colors.white30,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "${widget.vehicle.registration}",
+                  style:
+                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                QrImage(
+                  data: '${token.id}',
+                  version: QrVersions.auto,
+                  size: 320,
+                  gapless: false,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                        height: 20,
+                        width: 20,
+                        child: CircleAvatar(
+                          backgroundColor: token.status == "Pending"
+                              ? Colors.orangeAccent
+                              : Colors.greenAccent,
+                        )),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Text("${token.status}"),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "${token.qty} L",
+                      style: TextStyle(
+                          color: Colors.grey.shade800,
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Icon(
+                      Icons.local_gas_station,
+                      color: Colors.grey.shade800,
+                      size: 50,
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

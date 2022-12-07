@@ -6,20 +6,20 @@ const Color secondaryColor = Colors.redAccent;
 const Color textColor = Colors.white;
 final Color secondaryTextColor = Colors.grey.shade800;
 
-const TextStyle mainHeading =
-    TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+TextStyle mainHeading =
+    TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey.shade800 );
 const TextStyle mainHeadingLight =
     TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white);
-const TextStyle subHeading =
-    TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
+TextStyle subHeading =
+    TextStyle(fontSize: 16, fontWeight: FontWeight.w700,color: Colors.grey.shade800 );
 const TextStyle subHeadingLight =
     TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.white);
-const TextStyle normalText =
-    TextStyle(fontSize: 14, fontWeight: FontWeight.normal);
+TextStyle normalText =
+    TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.grey.shade800 );
 const TextStyle normalTextLight =
     TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white);
-const TextStyle formTitle =
-    TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
+TextStyle formTitle =
+    TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Colors.grey.shade800 );
 const TextStyle formTitleLight =
     TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Colors.white);
 

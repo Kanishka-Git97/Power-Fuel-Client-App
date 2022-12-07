@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:power_fuel_client_app/constants/constants.dart';
-import 'package:power_fuel_client_app/controllers/vehicle_controller.dart';
-import 'package:power_fuel_client_app/models/customer.dart';
-import 'package:power_fuel_client_app/models/vehicle.dart';
-import 'package:power_fuel_client_app/presentation/atoms/navigation_button.dart';
-import 'package:power_fuel_client_app/presentation/atoms/text_input.dart';
-import 'package:power_fuel_client_app/presentation/molecules/custom_bottom_navigation.dart';
-import 'package:power_fuel_client_app/presentation/screens/home_screen.dart';
-import 'package:power_fuel_client_app/repositories/vehicle_repository.dart';
 import 'package:provider/provider.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
+import '../../../constants/constants.dart';
+import '../../../controllers/vehicle_controller.dart';
+import '../../../models/customer.dart';
+import '../../../models/vehicle.dart';
+import '../../../presentation/atoms/navigation_button.dart';
+import '../../../presentation/atoms/text_input.dart';
+import '../../../presentation/molecules/custom_bottom_navigation.dart';
+import '../../../presentation/screens/home_screen.dart';
+import '../../../repositories/vehicle_repository.dart';
+
 
 import '../../../providers/user_provider.dart';
 import '../../atoms/primary_button.dart';
@@ -116,15 +117,17 @@ class _EditVehicleState extends State<EditVehicleScreen> {
     });
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white30,
+        elevation: 0,
         leading: const NavigationButton(),
-        title: const Text(
+        title: Text(
           "Edit Vehicle",
           style: mainHeading,
         ),
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        color:  Colors.white30,
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         width: double.infinity,
         child: SingleChildScrollView(
           child: Column(
@@ -133,8 +136,8 @@ class _EditVehicleState extends State<EditVehicleScreen> {
               const SizedBox(
                 height: 10,
               ),
-              const Text(
-                "Add Your Vehicle Details",
+              Text(
+                "Edit Your Vehicle Details",
                 style: formTitle,
               ),
               const SizedBox(
