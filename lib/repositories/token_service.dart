@@ -4,4 +4,5 @@ abstract class TokenServices {
   Future<String> add(Token token);
   Future<String> validate(int id);
   Future<Token> getToken(int id);
+  Future<List<Token>> tokens(int id);
 }

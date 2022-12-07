@@ -84,4 +84,20 @@ class VehicleRepository implements VehicleServices {
     }
     return VehicleType();
   }
+
+  @override
+  Future<Vehicle> getVehicle(int id) async {
+    var data = {"id": id};
+    var url = Uri.parse('$baseUrl/vehicle/get');
+    var response = await http.post(url,
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: jsonEncode(data));
+    if (response.statusCode == 200) {
+      return Vehicle.fromJson(json.decode(response.body));
+    }
+    return Vehicle();
+  }
 }

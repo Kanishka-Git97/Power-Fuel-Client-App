@@ -7,4 +7,5 @@ abstract class VehicleServices {
   Future<String> register(Vehicle vehicle);
   Future<List<Vehicle>> getVehicles(int id);
   Future<VehicleType> getType(int id);
+  Future<Vehicle> getVehicle(int id);
 }

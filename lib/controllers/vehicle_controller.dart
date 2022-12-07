@@ -26,4 +26,8 @@ class VehicleController {
   Future<VehicleType> getType(int id) {
     return services.getType(id);
   }
+
+  Future<Vehicle> getVehicle(int id) {
+    return services.getVehicle(id);
+  }
 }

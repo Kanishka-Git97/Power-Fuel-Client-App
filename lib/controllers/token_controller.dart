@@ -16,4 +16,8 @@ class TokenController {
   Future<Token> getToken(int id) {
     return services.getToken(id);
   }
+
+  Future<List<Token>> fetchTokens(int id) {
+    return services.tokens(id);
+  }
 }

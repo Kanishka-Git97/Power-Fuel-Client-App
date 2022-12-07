@@ -50,4 +50,26 @@ class TokenRepository implements TokenServices {
     }
     return Token();
   }
+
+  @override
+  Future<List<Token>> tokens(int id) async {
+    var data = {"id": id};
+    var url = Uri.parse('$baseUrl/token/tokens');
+    var response = await http.post(url,
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: jsonEncode(data));
+    print(response.statusCode);
+    if (response.statusCode == 200) {
+      var jsonData = json.decode(response.body);
+      List<Token> data = [];
+      for (var i = 0; i < jsonData.length; i++) {
+        data.add(Token.fromJson(jsonData[i]));
+      }
+      return data;
+    }
+    return [];
+  }
 }

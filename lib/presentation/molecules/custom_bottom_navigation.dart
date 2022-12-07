@@ -9,7 +9,8 @@ import '../screens/fuel/request_list_screen.dart';
 import '../screens/home_screen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({Key? key, required this.index}) : super(key: key);
+  const CustomBottomNavigationBar({Key? key, required this.index})
+      : super(key: key);
 
   final int index;
 
@@ -21,13 +22,12 @@ class CustomBottomNavigationBar extends StatefulWidget {
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
 
-
   @override
   void initState() {
     super.initState();
     _selectedIndex = widget.index;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +41,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           tabBackgroundColor: const Color.fromARGB(255, 228, 228, 228),
           gap: 5,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-          
           tabs: [
             GButton(
               icon: Icons.home,
@@ -75,7 +74,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const RequestListScreen(),
+                    builder: (context) => RequestListScreen(),
                   ),
                 );
               },
