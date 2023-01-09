@@ -79,19 +79,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 );
               },
             ),
-            GButton(
-              icon: Icons.person,
-              iconColor: Colors.black,
-              text: "Profile",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ProfileDetailsScreen(),
-                  ),
-                );
-              },
-            ),
+            
           ]),
     );
   }

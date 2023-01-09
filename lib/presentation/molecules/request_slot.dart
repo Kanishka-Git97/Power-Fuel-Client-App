@@ -9,6 +9,7 @@ import '../../constants/constants.dart';
 import '../../controllers/fuel_controller.dart';
 import '../../models/token.dart';
 import '../../models/vehicle.dart';
+import '../screens/token/qr_view.dart';
 
 class RequestSlot extends StatefulWidget {
   RequestSlot({Key? key, required this.token}) : super(key: key);
@@ -48,7 +49,6 @@ class _RequestSlotState extends State<RequestSlot> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getDetails();
   }
@@ -71,11 +71,22 @@ class _RequestSlotState extends State<RequestSlot> {
               children: [
                 Row(
                   children: [
-                    QrImage(
-                      data: '${widget.token.id}',
-                      version: QrVersions.auto,
-                      size: 50,
-                      gapless: false,
+                    GestureDetector(
+                      onTap: () {
+                        if (widget.token.status != "Expired") {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) =>
+                                      QRScreen(vehicle: vehicle))));
+                        }
+                      },
+                      child: QrImage(
+                        data: '${widget.token.id}',
+                        version: QrVersions.auto,
+                        size: 50,
+                        gapless: false,
+                      ),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -109,24 +120,7 @@ class _RequestSlotState extends State<RequestSlot> {
                     Icon(Icons.local_gas_station)
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                        backgroundColor: primaryColor,
-                        minimumSize: const Size(200, 30),
-                        textStyle: const TextStyle(fontSize: 16),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        side: const BorderSide(color: primaryColor)),
-                    child: Text(
-                      "Pay LKR $price",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                )
+                pay(widget.token.status),
               ],
             ),
             Column(
@@ -169,5 +163,37 @@ class _RequestSlotState extends State<RequestSlot> {
       return Icon(Icons.done_all_rounded);
     }
     return Icon(Icons.error);
+  }
+
+  //Paid Functions
+  pay(status) {
+    if (status == "Pending") {
+      return Padding(
+        padding: const EdgeInsets.only(left: 5),
+        child: TextButton(
+          onPressed: () {
+            print("Open Gate");
+          },
+          style: TextButton.styleFrom(
+              backgroundColor:
+                  widget.token.status != "Pending" ? Colors.grey : primaryColor,
+              minimumSize: const Size(200, 30),
+              textStyle: const TextStyle(fontSize: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              side: BorderSide(
+                  color: widget.token.status != "Pending"
+                      ? Colors.grey
+                      : primaryColor)),
+          child: Text(
+            "Pay LKR $price",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    } else {
+      return Text("");
+    }
   }
 }

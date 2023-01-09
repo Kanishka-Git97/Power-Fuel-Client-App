@@ -8,15 +8,18 @@ class GasStationRepository implements GasStationServices {
   //Default response of request
   @override
   Future getStationRaw(district) async {
-    var response =
-        await http.post(Uri.parse('$baseUrl/fuelstation/nearest'), body: {
-      "id": "$district"
-    }, headers: {
-      "Accept": "application/json",
-    });
+    print(district);
+    var apiData = {"id": "$district"};
+    var response = await http.post(Uri.parse('$baseUrl/fuelstation/nearest'),
+        body: jsonEncode(apiData),
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        });
     var jsonBody = response.body;
     var jsonData = json.decode(jsonBody);
     if (response.statusCode != 200) return [];
+    print(response.statusCode);
     List<dynamic> data = [];
     for (var i = 0; i < jsonData.length; i++) {
       data.add(jsonData[i]);
